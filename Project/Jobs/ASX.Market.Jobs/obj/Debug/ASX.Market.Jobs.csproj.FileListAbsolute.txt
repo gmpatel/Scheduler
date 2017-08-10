@@ -1,0 +1,6 @@
+D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\bin\Debug\ASX.Market.Jobs.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\bin\Debug\ASX.Market.Jobs.pdb
+D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\bin\Debug\Scheduler.Core.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.pdb

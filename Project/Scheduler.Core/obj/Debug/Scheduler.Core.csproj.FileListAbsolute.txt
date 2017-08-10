@@ -1,0 +1,13 @@
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Scheduler.Core.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Scheduler.Core.pdb
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Common.Logging.Core.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Common.Logging.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Quartz.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Common.Logging.pdb
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Common.Logging.xml
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Common.Logging.Core.pdb
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Common.Logging.Core.xml
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Quartz.pdb
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\bin\Debug\Quartz.xml
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\obj\Debug\Scheduler.Core.dll
+D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Core\obj\Debug\Scheduler.Core.pdb
