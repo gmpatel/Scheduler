@@ -3,3 +3,8 @@ D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Configuration\bin\Debug\Scheduler.
 D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Configuration\obj\Debug\Scheduler.Configuration.dll
 D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Configuration\obj\Debug\Scheduler.Configuration.pdb
 D:\Projects\TFS (gmpatel)\Scheduler\Scheduler.Configuration\obj\Debug\Scheduler.Configuration.csprojResolveAssemblyReference.cache
+D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\bin\Debug\Scheduler.Configuration.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\bin\Debug\Scheduler.Configuration.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\obj\Debug\Scheduler.Configuration.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\obj\Debug\Scheduler.Configuration.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\obj\Debug\Scheduler.Configuration.csprojResolveAssemblyReference.cache

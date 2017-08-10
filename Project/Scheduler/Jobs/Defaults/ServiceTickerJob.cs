@@ -17,7 +17,7 @@ namespace Scheduler.Jobs.Defaults
         {
             lock (locker)
             {
-                var tickLogText = string.Format("{0} - Ticker Job : Schedular Service is alive and working round the clock", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt"));
+                var tickLogText = string.Format("{0:yyyy-MM-dd HH:mm:ss tt} - Ticker Job : Schedular Service is alive and working round the clock", DateTime.Now);
                 File.WriteAllText("Scheduler.Jobs.Defaults.ServiceTickerJob.log", tickLogText);
                 Console.WriteLine(tickLogText);
             }

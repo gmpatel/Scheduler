@@ -4,3 +4,22 @@ D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\bin\Debug\Scheduler.Cor
 D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.dll
 D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.dll
 D:\Projects\TFS (gmpatel)\Scheduler\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\ASX.Market.Jobs.dll.config
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\ASX.Market.Jobs.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\ASX.Market.Jobs.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Scheduler.Core.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Selenium.WebDriverBackedSelenium.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.Support.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Selenium.WebDriverBackedSelenium.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.Support.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.pdb

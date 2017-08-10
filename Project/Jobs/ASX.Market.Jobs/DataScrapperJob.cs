@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using OpenQA.Selenium.Chrome;
 using Scheduler.Core;
 
 namespace ASX.Market.Jobs
@@ -12,9 +13,50 @@ namespace ASX.Market.Jobs
     {
         public override void Run()
         {
-            var tickLogText = string.Format("{0} - ASX Market Data Scrapper Job : Scrapper working round the clock", DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss tt"));
+            var tickLogText = string.Format("{0:yyyy-MM-dd HH:mm:ss tt} - ASX Market Data Scrapper Job : Scrapper working round the clock", DateTime.Now);
             File.WriteAllText("ASX.Market.Jobs.DataScrapperJob.log", tickLogText);
             Console.WriteLine(tickLogText);
+
+            var chromeService = ChromeDriverService.CreateDefaultService();
+            chromeService.HideCommandPromptWindow = true;
+
+            var chromeOptions = new ChromeOptions();
+            chromeOptions.AddArguments("-incognito");
+            chromeOptions.AddArguments("--disable-popup-blocking");
+
+
+            using (var driver = new ChromeDriver(chromeService, chromeOptions))
+            {
+                try
+                {
+                    driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
+                    driver.Navigate().GoToUrl("http://www.marketindex.com.au/asx200");
+                    var fileName = string.Format("ASX.Market.Jobs.DataScrapperJob.{0:yyyyMMdd}.{1:HHmmss}.data", DateTime.Now, DateTime.Now);
+                    var text = "http://www.marketindex.com.au/asx200 was navigated successfully...";
+                    var element = driver.FindElementById("sub_footer");
+                    if (element != null)
+                    {
+                        text = element.Text;
+                    }
+                    File.WriteAllText(fileName, text);
+                }
+                catch (Exception)
+                {
+                    // Do ...
+                }
+                finally
+                {
+                    try
+                    {
+                        //driver.Close();
+                    }
+                    catch (Exception exception)
+                    {
+                        var fileName = string.Format("ASX.Market.Jobs.DataScrapperJob.{0:yyyyMMdd}.{1:HHmmss}.err", DateTime.Now, DateTime.Now);
+                        File.WriteAllText(fileName, string.Format("{0}\\n\\n{1}",exception.Message, exception.StackTrace));
+                    }
+                }
+            }
         }
     }
 }

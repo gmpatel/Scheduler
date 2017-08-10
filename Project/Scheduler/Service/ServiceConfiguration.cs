@@ -4,17 +4,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Scheduler.Service;
+using Scheduler.Service.Interfaces;
 using Topshelf;
 
-namespace Scheduler
+namespace Scheduler.Service
 {
     internal static class ServiceConfiguration
     {
         internal static void Configure()
         {
+
             HostFactory.Run(configure =>
             {
-                configure.Service<SchedulerService>(service =>
+                configure.Service<ISchedulerService>(service =>
                 {
                     service.ConstructUsing(s => new SchedulerService());
 

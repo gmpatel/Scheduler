@@ -1,0 +1,13 @@
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Scheduler.Core.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Scheduler.Core.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Common.Logging.Core.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Common.Logging.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Quartz.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Common.Logging.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Common.Logging.xml
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Common.Logging.Core.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Common.Logging.Core.xml
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Quartz.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Quartz.xml
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\obj\Release\Scheduler.Core.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\obj\Release\Scheduler.Core.pdb

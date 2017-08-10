@@ -9,10 +9,11 @@ using System.IO;
 using Scheduler.Configuration;
 using Scheduler.Core;
 using Scheduler.Quartz;
+using Scheduler.Service.Interfaces;
 
 namespace Scheduler.Service
 {
-    public class SchedulerService
+    public class SchedulerService : ISchedulerService
     {
         public void Start()
         {

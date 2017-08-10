@@ -34,6 +34,8 @@ namespace Scheduler.Quartz
 
             scheduler.ScheduleJob(builtInJob, builtInJobTrigger);
 
+            // if (Scope.Args != null && Scope.Args.Any() && Scope.Args[0].Equals("Debug", StringComparison.CurrentCultureIgnoreCase))
+
             if (config != null && config.AssemblyElements.Any())
             {
                 foreach (var assemblyElement in config.AssemblyElements)
@@ -48,7 +50,7 @@ namespace Scheduler.Quartz
                             .WithIdentity(string.Format("{0}Job {1}", job.Name, Guid.NewGuid()), "Group")
                             .Build();
 
-                        var injectedJobTrigger =  TriggerBuilder.Create()
+                        var injectedJobTrigger = TriggerBuilder.Create()
                             .WithIdentity(string.Format("{0}Trigger {1}", job.Name, Guid.NewGuid()), "Group")
                             .WithCronSchedule(job.CronTrigger) //0/5 * * * * ?
                             .Build();
