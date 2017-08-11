@@ -2,8 +2,11 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
+using ASX.Market.Jobs.DataAccess.EF.Defaults;
+using ASX.Market.Jobs.DataAccess.EF.Interfaces;
 using OpenQA.Selenium.Chrome;
 using Scheduler.Core;
 
@@ -11,8 +14,24 @@ namespace ASX.Market.Jobs
 {
     public class DataScrapperJob : SchedulerJobBase
     {
+        public IDataService DataService { get; private set; }
+
+        public DataScrapperJob() : this(new DataService())
+        {
+        }
+
+        public DataScrapperJob(IDataService dataService)
+        {
+            this.DataService = dataService;
+        }
+
         public override void Run()
         {
+            foreach (var e in this.DataService.GetIndices())
+            {
+                Console.WriteLine(e.Name);
+            }
+
             var chromeService = ChromeDriverService.CreateDefaultService();
             chromeService.HideCommandPromptWindow = true;
 

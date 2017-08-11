@@ -10,3 +10,9 @@ D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\WebDriver.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\obj\Release\JobTesting.csprojResolveAssemblyReference.cache
 D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\obj\Release\JobTesting.exe
 D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\obj\Release\JobTesting.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\EntityFramework.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\EntityFramework.SqlServer.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\Newtonsoft.Json.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\EntityFramework.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\EntityFramework.SqlServer.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\Newtonsoft.Json.xml

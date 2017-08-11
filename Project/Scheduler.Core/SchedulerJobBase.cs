@@ -15,8 +15,10 @@ namespace Scheduler.Core
 
         public void Execute(IJobExecutionContext context)
         {
+            var dateTime = DateTime.Now;
             var className = this.GetType().FullName;
-            var text = string.Format("{0:yyyy-MM-dd HH:mm:ss tt} - {1}{2}Executing job as scheduled{3}{4}", DateTime.Now, className, Environment.NewLine, Environment.NewLine, Environment.NewLine);
+            var text = string.Format("{0:yyyy-MM-dd HH:mm:ss tt} - {1}{2}Executing job as scheduled{3}{4}", dateTime, className, Environment.NewLine, Environment.NewLine, Environment.NewLine);
+            var error = false;
 
             try
             {                
@@ -30,6 +32,7 @@ namespace Scheduler.Core
             }
             catch (Exception exception)
             {
+                error = true;
                 text = string.Format("{0}Failed:{1}{2}{3}{4}Error Message:{5}{6}{7}{8}Stack Trace:{9}{10}", 
                     text, 
                     Environment.NewLine, 
@@ -49,7 +52,11 @@ namespace Scheduler.Core
                 lock (locker)
                 {
                     File.WriteAllText(string.Format("{0}.log", className), text);
-                    Console.WriteLine(text);
+                    
+                    if (error)
+                    {
+                        File.WriteAllText(string.Format("{0}.{1:yyyyMMdd}.{2:HH:mm:ss}.error", className, dateTime, dateTime), text);
+                    }
                 }
             }
         }

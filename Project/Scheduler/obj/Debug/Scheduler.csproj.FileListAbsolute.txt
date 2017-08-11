@@ -46,3 +46,7 @@ D:\Projects\GIT\Scheduler\Project\Scheduler\bin\Debug\Topshelf.xml
 D:\Projects\GIT\Scheduler\Project\Scheduler\obj\Debug\Scheduler.csprojResolveAssemblyReference.cache
 D:\Projects\GIT\Scheduler\Project\Scheduler\obj\Debug\Scheduler.exe
 D:\Projects\GIT\Scheduler\Project\Scheduler\obj\Debug\Scheduler.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler\bin\Debug\EntityFramework.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\GIT\Scheduler\Project\Scheduler\bin\Debug\EntityFramework.xml
+D:\Projects\GIT\Scheduler\Project\Scheduler\bin\Debug\EntityFramework.SqlServer.xml

@@ -10,10 +10,8 @@ namespace JobTesting
     {
         static void Main(string[] args)
         {
-            //var job = new ASX.Market.Jobs.DataScrapperJob();
-            //job.Run();
-
-            string fullyQualifiedName = typeof(ASX.Market.Jobs.DataScrapperJob).FullName;
+            var job = new ASX.Market.Jobs.DataScrapperJob();
+            job.Run();
 
             Console.ReadKey();
         }

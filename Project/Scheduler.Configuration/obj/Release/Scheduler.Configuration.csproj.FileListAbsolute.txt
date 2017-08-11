@@ -2,3 +2,4 @@ D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\bin\Release\Scheduler.
 D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\bin\Release\Scheduler.Configuration.pdb
 D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\obj\Release\Scheduler.Configuration.dll
 D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\obj\Release\Scheduler.Configuration.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Configuration\obj\Release\Scheduler.Configuration.csprojResolveAssemblyReference.cache

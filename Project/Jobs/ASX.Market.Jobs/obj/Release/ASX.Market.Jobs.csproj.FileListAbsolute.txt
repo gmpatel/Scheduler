@@ -15,6 +15,13 @@ D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Newtonsoft.Js
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Selenium.WebDriverBackedSelenium.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\WebDriver.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\WebDriver.Support.xml
-D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Release\ASX.Market.Jobs.csprojResolveAssemblyReference.cache
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Release\ASX.Market.Jobs.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Release\ASX.Market.Jobs.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Common.Logging.Core.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Common.Logging.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Common.Logging.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Common.Logging.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Common.Logging.Core.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Common.Logging.Core.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Quartz.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Release\Quartz.xml

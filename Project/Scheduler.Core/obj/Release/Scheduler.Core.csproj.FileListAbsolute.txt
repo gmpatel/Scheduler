@@ -11,3 +11,4 @@ D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Quartz.pdb
 D:\Projects\GIT\Scheduler\Project\Scheduler.Core\bin\Release\Quartz.xml
 D:\Projects\GIT\Scheduler\Project\Scheduler.Core\obj\Release\Scheduler.Core.dll
 D:\Projects\GIT\Scheduler\Project\Scheduler.Core\obj\Release\Scheduler.Core.pdb
+D:\Projects\GIT\Scheduler\Project\Scheduler.Core\obj\Release\Scheduler.Core.csprojResolveAssemblyReference.cache
