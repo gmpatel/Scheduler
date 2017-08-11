@@ -13,10 +13,6 @@ namespace ASX.Market.Jobs
     {
         public override void Run()
         {
-            var tickLogText = string.Format("{0:yyyy-MM-dd HH:mm:ss tt} - ASX Market Data Scrapper Job : Scrapper working round the clock", DateTime.Now);
-            File.WriteAllText("ASX.Market.Jobs.DataScrapperJob.log", tickLogText);
-            Console.WriteLine(tickLogText);
-
             var chromeService = ChromeDriverService.CreateDefaultService();
             chromeService.HideCommandPromptWindow = true;
 

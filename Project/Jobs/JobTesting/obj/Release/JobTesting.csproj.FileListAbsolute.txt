@@ -1,0 +1,12 @@
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\JobTesting.exe.config
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\JobTesting.exe
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\JobTesting.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\ASX.Market.Jobs.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\Scheduler.Core.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\WebDriver.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\Quartz.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\ASX.Market.Jobs.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Release\WebDriver.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\obj\Release\JobTesting.csprojResolveAssemblyReference.cache
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\obj\Release\JobTesting.exe
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\obj\Release\JobTesting.pdb

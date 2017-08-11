@@ -28,7 +28,7 @@ namespace Scheduler.Configuration.ElementCollections
 
         protected override object GetElementKey(ConfigurationElement element)
         {
-            return ((JobElement)element).Name;
+            return ((JobElement)element).Class;
         }
 
         public JobElement this[string name]

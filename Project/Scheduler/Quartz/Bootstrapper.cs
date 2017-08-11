@@ -23,19 +23,21 @@ namespace Scheduler.Quartz
 
             scheduler.Start();
 
+            var id = Guid.NewGuid();
+
             var builtInJob = JobBuilder.Create<ServiceTickerJob>()
-                .WithIdentity(string.Format("serviceTickerJob {0}", Guid.NewGuid()), "Group")
+                .WithIdentity(string.Format("Scheduler.Jobs.Defaults.ServiceTickerJob.J.{0}", id), "Group")
                 .Build();
 
             var builtInJobTrigger = TriggerBuilder.Create()
-                .WithIdentity(string.Format("ServiceTickerTrigger {0}", Guid.NewGuid()), "Group")
+                .WithIdentity(string.Format("Scheduler.Jobs.Defaults.ServiceTickerJob.T.{0}", id), "Group")
                 .WithCronSchedule("0 * * * * ?")
                 .Build();
 
             scheduler.ScheduleJob(builtInJob, builtInJobTrigger);
 
             // if (Scope.Args != null && Scope.Args.Any() && Scope.Args[0].Equals("Debug", StringComparison.CurrentCultureIgnoreCase))
-
+            
             if (config != null && config.AssemblyElements.Any())
             {
                 foreach (var assemblyElement in config.AssemblyElements)
@@ -45,13 +47,15 @@ namespace Scheduler.Quartz
                     foreach (JobElement job in assemblyElement.Jobs)
                     {
                         var type = assembly.GetType(job.Class);
+                        var name = type.FullName;
+                        var guid = Guid.NewGuid();
 
                         var injectedJob = JobBuilder.Create(type)
-                            .WithIdentity(string.Format("{0}Job {1}", job.Name, Guid.NewGuid()), "Group")
+                            .WithIdentity(string.Format("{0}.J.{1}", name, guid), "Group")
                             .Build();
 
                         var injectedJobTrigger = TriggerBuilder.Create()
-                            .WithIdentity(string.Format("{0}Trigger {1}", job.Name, Guid.NewGuid()), "Group")
+                            .WithIdentity(string.Format("{0}.T.{1}", name, guid), "Group")
                             .WithCronSchedule(job.CronTrigger) //0/5 * * * * ?
                             .Build();
 

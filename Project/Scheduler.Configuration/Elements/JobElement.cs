@@ -9,14 +9,7 @@ namespace Scheduler.Configuration.Elements
 {
     public class JobElement : ConfigurationElement
     {
-        [ConfigurationProperty("name", DefaultValue = "", IsKey = true, IsRequired = true)]
-        public string Name
-        {
-            get { return (string)base["name"]; }
-            set { base["name"] = value; }
-        }
-
-        [ConfigurationProperty("class", DefaultValue = "", IsKey = false, IsRequired = true)]
+        [ConfigurationProperty("class", DefaultValue = "", IsKey = true, IsRequired = true)]
         public string Class
         {
             get { return (string)base["class"]; }

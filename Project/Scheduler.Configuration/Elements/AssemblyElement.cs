@@ -16,14 +16,7 @@ namespace Scheduler.Configuration.Elements
             get { return (string)base["name"]; }
             set { base["name"] = value; }
         }
-
-        [ConfigurationProperty("path", DefaultValue = "", IsKey = false, IsRequired = true)]
-        public string Path
-        {
-            get { return (string)base["path"]; }
-            set { base["path"] = value; }
-        }
-
+        
         [ConfigurationProperty("jobs")]
         public JobElementCollection Jobs
         {
