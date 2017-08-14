@@ -10,19 +10,14 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
     {
         private static long counter;
 
-        public IUnitOfWork UnitOfWork { get; private set; }
         public IDataContext DbContext { get; private set; }
 
-        public Repository() : this(new UnitOfWork())
-        {
-        }
-
-        public Repository(IUnitOfWork unitOfWork)
+        public Repository(IDataContext dataContext)
         {
             Id = ++counter;
 
-            this.UnitOfWork = unitOfWork;
-            this.DbContext = unitOfWork.DbContext;
+            //this.UnitOfWork = unitOfWork;
+            this.DbContext = dataContext;
         }
 
         public long Id { get; private set; }

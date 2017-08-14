@@ -1,0 +1,15 @@
+2017-08-12 14:13:00.031 PM - Scheduler.Jobs.Defaults.ServiceTickerJob
+Executing job as scheduled
+
+Failed:
+Job completed with error(s). There was an exception thrown by the job to service.
+
+Error Message:
+Can't divide 9 by 0.
+
+Stack Trace:
+   at Scheduler.Jobs.Defaults.ServiceTickerJob.Run() in D:\Projects\GIT\Scheduler\Project\Scheduler\Jobs\Defaults\ServiceTickerJob.cs:line 16
+   at Scheduler.Core.SchedulerJobBase.Execute(IJobExecutionContext context) in D:\Projects\GIT\Scheduler\Project\Scheduler.Core\SchedulerJobBase.cs:line 25
+
+Finished:
+Job finished at 2017-08-12 14:13:00.069 PM.

@@ -51,7 +51,16 @@ namespace Scheduler.Core
             {
                 lock (locker)
                 {
+                    text = string.Format("{0}{1}{2}Finished:{3}{4}",
+                        text,
+                        Environment.NewLine,
+                        Environment.NewLine,
+                        Environment.NewLine,
+                        string.Format("Job finished at {0:yyyy-MM-dd HH:mm:ss.fff tt}.", DateTime.Now)
+                    );
+
                     File.WriteAllText(string.Format("{0}.log", className), text);
+                    PrintConsoleMessage(className, text);
 
                     if (error)
                     {
@@ -62,5 +71,16 @@ namespace Scheduler.Core
         }
 
         public abstract void Run(IJobExecutionContext context);
+
+        private void PrintConsoleMessage(string className, string text)
+        {
+            Console.WriteLine();
+            Console.WriteLine(new string('-', 70));
+            Console.WriteLine(className);
+            Console.WriteLine(new string('-', 70));
+            Console.Write(text); Console.WriteLine();
+            Console.WriteLine(new string('-', 70));
+            Console.WriteLine();
+        }
     }
 }

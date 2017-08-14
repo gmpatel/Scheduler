@@ -32,12 +32,12 @@ namespace ASX.Market.Jobs.DataAccess.EF
                         DateTimeCreated = dateTime,
                         Indices = new List<IndexEntity>
                         {
-                            new IndexEntity { Code = "ASX20", Name = "ASX 20", DateTimeCreated = dateTime },
-                            new IndexEntity { Code = "ASX50", Name = "ASX 50", DateTimeCreated = dateTime },
-                            new IndexEntity { Code = "ASX100", Name = "ASX 100", DateTimeCreated = dateTime },
-                            new IndexEntity { Code = "ASX200", Name = "ASX 200", DateTimeCreated = dateTime },
-                            new IndexEntity { Code = "ASX300", Name = "ASX 300", DateTimeCreated = dateTime },
-                            new IndexEntity { Code = "AllOrds", Name = "All Ordinaries", DateTimeCreated = dateTime }
+                            new IndexEntity { Code = "ASX20", Name = "ASX 20", Url = "http://www.marketindex.com.au/asx20", DateTimeCreated = dateTime },
+                            new IndexEntity { Code = "ASX50", Name = "ASX 50", Url = "http://www.marketindex.com.au/asx50", DateTimeCreated = dateTime },
+                            new IndexEntity { Code = "ASX100", Name = "ASX 100", Url = "http://www.marketindex.com.au/asx100", DateTimeCreated = dateTime },
+                            new IndexEntity { Code = "ASX200", Name = "ASX 200", Url = "http://www.marketindex.com.au/asx200", DateTimeCreated = dateTime },
+                            new IndexEntity { Code = "ASX300", Name = "ASX 300", Url = "http://www.marketindex.com.au/asx300", DateTimeCreated = dateTime },
+                            new IndexEntity { Code = "AllOrds", Name = "All Ordinaries", Url = "http://www.marketindex.com.au/all-ordinaries", DateTimeCreated = dateTime }
                         }   
                     }
                 );            

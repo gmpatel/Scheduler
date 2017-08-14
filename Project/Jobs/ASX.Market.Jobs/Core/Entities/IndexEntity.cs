@@ -19,7 +19,10 @@ namespace ASX.Market.Jobs.Core.Entities
         [JsonProperty(PropertyName = "name", Order = 3, DefaultValueHandling = DefaultValueHandling.Include)]
         public string Name { get; set; }
 
-        [JsonProperty(PropertyName = "exchangeId", Order = 4, DefaultValueHandling = DefaultValueHandling.Include)]
+        [JsonProperty(PropertyName = "url", Order = 4, DefaultValueHandling = DefaultValueHandling.Include)]
+        public string Url { get; set; }
+
+        [JsonProperty(PropertyName = "exchangeId", Order = 5, DefaultValueHandling = DefaultValueHandling.Include)]
         public long ExchangeId { get; set; }
 
         [JsonIgnore]
@@ -30,5 +33,8 @@ namespace ASX.Market.Jobs.Core.Entities
 
         [JsonIgnore]
         public virtual ExchangeEntity Exchange { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<StockEntity> Stocks { get; set; }
     }
 }

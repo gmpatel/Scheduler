@@ -13,6 +13,7 @@ namespace Scheduler.Jobs.Defaults
     {
         public override void Run()
         {
+            // throw new DivideByZeroException("Can't divide 9 by 0.");
         }
     }
 }

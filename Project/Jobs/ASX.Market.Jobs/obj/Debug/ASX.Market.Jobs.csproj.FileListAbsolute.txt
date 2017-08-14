@@ -32,3 +32,4 @@ D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.Core.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.pdb
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.IndexingExtensions.dll

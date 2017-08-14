@@ -8,7 +8,6 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
     {
         long Id { get; }
         long Instances { get; }
-        IUnitOfWork UnitOfWork { get; }
         IDataContext DbContext { get; }
 
         IQueryable<TEntity> GetAll();

@@ -1,0 +1,8 @@
+2017-08-12 14:16:00.024 PM - Scheduler.Jobs.Defaults.ServiceTickerJob
+Executing job as scheduled
+
+Succeed:
+Job completed successfully. There was no exception thrown to service by the job.
+
+Finished:
+Job finished at 2017-08-12 14:16:00.039 PM.

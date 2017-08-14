@@ -16,3 +16,4 @@ D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Debug\EntityFramework.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Debug\Newtonsoft.Json.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\GIT\Scheduler\Project\Jobs\JobTesting\bin\Debug\EntityFramework.IndexingExtensions.dll
