@@ -11,6 +11,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
 
         IList<ExchangeEntity> GetExchanges(long? id = null);
         IList<IndexEntity> GetIndices(long? exchangeId = null);
+        IList<IndexEntity> GetIndicesByCodes(IEnumerable<string> codes = null);
         IList<StockEntity> GetStocks(long? id = null);
         IList<StockEntity> GetStocksByCodes(IEnumerable<string> codes = null);
         StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity);

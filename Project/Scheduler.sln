@@ -13,7 +13,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ASX.Market.Jobs", "Jobs\ASX
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Scheduler.Configuration", "Scheduler.Configuration\Scheduler.Configuration.csproj", "{F11CF825-EB63-4D2A-9AB8-562F0E80864D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "JobTesting", "Jobs\JobTesting\JobTesting.csproj", "{02D6B15E-A749-4CC8-8786-BD296D16F3AE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Racing.Market.Jobs", "Jobs\Racing.Market.Jobs\Racing.Market.Jobs.csproj", "{108E3074-3FC4-4975-915D-932DC112F65E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Testing.Jobs", "Jobs\Testing.Jobs\Testing.Jobs.csproj", "{02D6B15E-A749-4CC8-8786-BD296D16F3AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,6 +39,10 @@ Global
 		{F11CF825-EB63-4D2A-9AB8-562F0E80864D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F11CF825-EB63-4D2A-9AB8-562F0E80864D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F11CF825-EB63-4D2A-9AB8-562F0E80864D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{108E3074-3FC4-4975-915D-932DC112F65E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{108E3074-3FC4-4975-915D-932DC112F65E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{108E3074-3FC4-4975-915D-932DC112F65E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{108E3074-3FC4-4975-915D-932DC112F65E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{02D6B15E-A749-4CC8-8786-BD296D16F3AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{02D6B15E-A749-4CC8-8786-BD296D16F3AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{02D6B15E-A749-4CC8-8786-BD296D16F3AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -47,6 +53,7 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{BD151B7A-E125-44F0-B0A8-D5106B8F185F} = {0EB21617-FE48-4C9A-ACB9-625B2FBA709A}
+		{108E3074-3FC4-4975-915D-932DC112F65E} = {0EB21617-FE48-4C9A-ACB9-625B2FBA709A}
 		{02D6B15E-A749-4CC8-8786-BD296D16F3AE} = {0EB21617-FE48-4C9A-ACB9-625B2FBA709A}
 	EndGlobalSection
 EndGlobal

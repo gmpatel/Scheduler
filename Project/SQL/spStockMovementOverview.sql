@@ -24,9 +24,11 @@ AS
 	FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
 
 	DECLARE @StartDate bigint
+	DECLARE @StartDay nvarchar(50)
 	DECLARE @StartPrice decimal (18,2)
 	DECLARE @StartIndicator bit
 	DECLARE @EndDate bigint
+	DECLARE @EndDay nvarchar(50)
 	DECLARE @EndPrice decimal (18,2)
 	DECLARE @EndIndicator bit
 	DECLARE @TotalChanged decimal (18,2)
@@ -52,9 +54,11 @@ AS
 	  MovementDays bigint,
 	  MovementDirection nvarchar(50),
 	  StartDate bigint,
+	  StartDay nvarchar(50),
 	  StartPrice decimal(18,2),
 	  StartIndicator bit,
 	  EndDate bigint,
+	  EndDay nvarchar(50),
 	  EndPrice decimal(18,2),
 	  EndIndicator bit,
 	  Changed decimal(18,2),
@@ -74,9 +78,11 @@ AS
 		IF @Counter = 1
 		 BEGIN
 		  SET @StartDate = @Date
+		  select @StartDay = datename(dw, cast(convert(nvarchar(4), @StartDate/10000) + '-' + right('00' + convert(nvarchar(2), (@StartDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@StartDate%100)), 2) + ' 00:00:00' as datetime))
 		  SET @StartPrice = @Price
 		  SET @StartIndicator = @BuyIndicator
 		  SET @EndDate = @Date
+		  select @EndDay = datename(dw, cast(convert(nvarchar(4), @EndDate/10000) + '-' + right('00' + convert(nvarchar(2), (@EndDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@EndDate%100)), 2) + ' 00:00:00' as datetime))
 		  SET @EndPrice = @Price
 		  SET @EndIndicator = @BuyIndicator
 		  SET @TotalChanged = @Change
@@ -105,6 +111,7 @@ AS
 		  IF @ChangeIndicator = @CurrentChangeIndicator
 		  BEGIN
 			SET @EndDate = @Date
+			select @EndDay = datename(dw, cast(convert(nvarchar(4), @EndDate/10000) + '-' + right('00' + convert(nvarchar(2), (@EndDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@EndDate%100)), 2) + ' 00:00:00' as datetime))
 			SET @EndPrice = @Price
 			SET @EndIndicator = @BuyIndicator
 			SET @TotalChanged = @TotalChanged + @Change
@@ -132,13 +139,15 @@ AS
 			  SET @StartPrice = @EndPrice - @TotalChanged
 			 END
 			
-			INSERT INTO #StockMovementSummary values (@StockId, @Code, @Name, @Counter - 1, @ChangeIndicator, @StartDate, @StartPrice, @StartIndicator, @EndDate, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin)
+			INSERT INTO #StockMovementSummary values (@StockId, @Code, @Name, @Counter - 1, @ChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin)
 
 			SET @Counter = 1
 			SET @StartDate = @Date
+			select @StartDay = datename(dw, cast(convert(nvarchar(4), @StartDate/10000) + '-' + right('00' + convert(nvarchar(2), (@StartDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@StartDate%100)), 2) + ' 00:00:00' as datetime))
 			SET @StartPrice = @EndPrice
 			SET @StartIndicator = @BuyIndicator
 			SET @EndDate = @Date
+			select @EndDay = datename(dw, cast(convert(nvarchar(4), @EndDate/10000) + '-' + right('00' + convert(nvarchar(2), (@EndDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@EndDate%100)), 2) + ' 00:00:00' as datetime))
 			SET @EndPrice = @Price
 			SET @EndIndicator = @BuyIndicator
 			SET @TotalChanged = @Change
@@ -166,7 +175,7 @@ AS
 			SET @StartPrice = @EndPrice + @TotalChanged
 		   END
 
-		  INSERT INTO #StockMovementSummary values (@StockId, @Code, @Name, @Counter, @CurrentChangeIndicator, @StartDate, @StartPrice, @StartIndicator, @EndDate, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin)
+		  INSERT INTO #StockMovementSummary values (@StockId, @Code, @Name, @Counter, @CurrentChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin)
 		END
 	END   
 

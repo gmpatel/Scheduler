@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Quartz;
 using Scheduler.Core.Common;
+using Scheduler.Core.Exceptions;
 
 namespace Scheduler.Core
 {
@@ -30,7 +31,7 @@ namespace Scheduler.Core
                     "Job completed successfully. There was no exception thrown to service by the job."
                 );
             }
-            catch (Exception exception)
+            catch (ExceptionBunch exceptions)
             {
                 error = true;
                 text = string.Format("{0}Failed:{1}{2}{3}{4}Error Message:{5}{6}{7}{8}Stack Trace:{9}{10}", 
@@ -40,11 +41,11 @@ namespace Scheduler.Core
                     Environment.NewLine, 
                     Environment.NewLine, 
                     Environment.NewLine, 
-                    exception.AllMessages(), 
+                    exceptions.AllMessages(), 
                     Environment.NewLine, 
                     Environment.NewLine, 
                     Environment.NewLine, 
-                    exception.StackTrace
+                    exceptions.StackTrace
                 );
             }
             finally

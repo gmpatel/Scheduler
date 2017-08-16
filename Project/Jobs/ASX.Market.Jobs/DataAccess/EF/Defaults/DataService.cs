@@ -52,6 +52,11 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
             return UnitOfWork.IndexRepository.FindBy(x => (exchangeId == null || x.ExchangeId == exchangeId.Value)).ToList();
         }
 
+        public IList<IndexEntity> GetIndicesByCodes(IEnumerable<string> codes = null)
+        {
+            return GetIndices().Where(x => codes == null || codes.Contains(x.Code)).ToList();
+        }
+
         public IList<StockEntity> GetStocks(long? id = null)
         {
             return UnitOfWork.StockRepository.FindBy(x => (id == null || x.Id == id.Value)).ToList();

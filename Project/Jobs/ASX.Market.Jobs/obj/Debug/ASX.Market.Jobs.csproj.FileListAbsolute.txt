@@ -10,7 +10,6 @@ D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\ASX.Market.Jobs
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Newtonsoft.Json.dll
-D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Scheduler.Core.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Selenium.WebDriverBackedSelenium.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.Support.dll
@@ -23,13 +22,12 @@ D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\WebDriver.Support.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.pdb
-D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.csprojResolveAssemblyReference.cache
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.Core.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.pdb
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.Core.pdb
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Common.Logging.Core.xml
-D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.pdb
-D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Quartz.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\EntityFramework.IndexingExtensions.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\bin\Debug\Scheduler.Core.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\ASX.Market.Jobs\obj\Debug\ASX.Market.Jobs.csprojResolveAssemblyReference.cache

@@ -40,7 +40,7 @@ namespace ASX.Market.Jobs
         {
             var exceptions = new List<Exception>();
 
-            foreach (var e in this.DataService.GetIndices())
+            foreach (var e in this.DataService.GetIndices().OrderByDescending(x => x.Id)) // GetIndicesByCodes(new List<string> { "AllOrds" })
             {
                 Console.WriteLine(e.Name);
 
