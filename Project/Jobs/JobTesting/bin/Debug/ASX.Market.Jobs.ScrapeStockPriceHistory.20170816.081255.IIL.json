@@ -1,0 +1,44 @@
+[
+  {
+    "id": 8930,
+    "date": 20170811,
+    "stockId": 399,
+    "flag1": false,
+    "price": 0.047,
+    "change": 0.00,
+    "changePercent": 0.00,
+    "high": 0.049,
+    "low": 0.047,
+    "volume": 357831.0,
+    "marketCapital": 17455.0,
+    "oneYearChange": null
+  },
+  {
+    "id": 8931,
+    "date": 20170810,
+    "stockId": 399,
+    "flag1": false,
+    "price": 0.047,
+    "change": 0.00,
+    "changePercent": 0.00,
+    "high": 0.047,
+    "low": 0.046,
+    "volume": 447374.0,
+    "marketCapital": 20951.0,
+    "oneYearChange": null
+  },
+  {
+    "id": 8932,
+    "date": 20170809,
+    "stockId": 399,
+    "flag1": false,
+    "price": 0.047,
+    "change": -0.002,
+    "changePercent": -4.08,
+    "high": 0.049,
+    "low": 0.047,
+    "volume": 194772.0,
+    "marketCapital": 9390.0,
+    "oneYearChange": null
+  }
+]

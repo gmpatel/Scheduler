@@ -70,7 +70,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
             modelBuilder.Entity<StockDetailEntity>().Property(x => x.Volume).IsOptional();
             modelBuilder.Entity<StockDetailEntity>().Property(x => x.MarketCapital).IsOptional();
             modelBuilder.Entity<StockDetailEntity>().Property(x => x.OneYearChange).IsOptional();
-            modelBuilder.Entity<StockDetailEntity>().Property(x => x.Flag1).IsOptional();
+            modelBuilder.Entity<StockDetailEntity>().Property(x => x.Flag1).IsRequired();
             modelBuilder.Entity<StockDetailEntity>().Property(x => x.DateTimeCreated).IsRequired();
             modelBuilder.Entity<StockDetailEntity>().HasKey(x => new { x.Id });
 

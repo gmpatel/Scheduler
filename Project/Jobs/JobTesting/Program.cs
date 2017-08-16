@@ -10,7 +10,7 @@ namespace JobTesting
     {
         static void Main(string[] args)
         {
-            var job = new ASX.Market.Jobs.DataScrapperJob();
+            var job = new ASX.Market.Jobs.ScrapeStockPriceHistory();
             job.Run();
 
             Console.ReadKey();

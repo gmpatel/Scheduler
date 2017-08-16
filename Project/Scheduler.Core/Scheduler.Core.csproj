@@ -53,6 +53,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Extensions.cs" />
+    <Compile Include="Exceptions\ExceptionBunch.cs" />
     <Compile Include="SchedulerJobWithQuartzContextBase.cs" />
     <Compile Include="SchedulerJobBase.cs" />
     <Compile Include="ISchedulerJob.cs" />

@@ -95,10 +95,10 @@
     <Compile Include="Configuration\Elements\AssemblyElement.cs" />
     <Compile Include="Configuration\Elements\JobElement.cs" />
     <Compile Include="Core\Entities\ExchangeEntity.cs" />
+    <Compile Include="Core\Entities\IndexDetailEntity.cs" />
     <Compile Include="Core\Entities\IndexEntity.cs" />
     <Compile Include="Core\Entities\StockDetailEntity.cs" />
     <Compile Include="Core\Entities\StockEntity.cs" />
-    <Compile Include="Core\Exceptions\ExceptionBunch.cs" />
     <Compile Include="Core\Helpers\GeneralHelpers.cs" />
     <Compile Include="DataAccess\EF\DBMigrationConfiguration.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataContext.cs" />
@@ -110,8 +110,9 @@
     <Compile Include="DataAccess\EF\Interfaces\IRepository.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IUnitOfWork.cs" />
     <Compile Include="DataAccess\EF\MigrateDatabaseToLatestVersionExtended.cs" />
-    <Compile Include="DataScrapperJob.cs" />
+    <Compile Include="ScrapeDailyData.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScrapeStockPriceHistory.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

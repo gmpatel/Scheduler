@@ -31,7 +31,6 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
         public DataService(IUnitOfWork unitOfWork)
         {
             Id = ++objectsCounter;
-
             this.UnitOfWork = unitOfWork;
         }
 
@@ -51,6 +50,22 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
         public IList<IndexEntity> GetIndices(long? exchangeId = null)
         {
             return UnitOfWork.IndexRepository.FindBy(x => (exchangeId == null || x.ExchangeId == exchangeId.Value)).ToList();
+        }
+
+        public IList<StockEntity> GetStocks(long? id = null)
+        {
+            return UnitOfWork.StockRepository.FindBy(x => (id == null || x.Id == id.Value)).ToList();
+        }
+
+        public IList<StockEntity> GetStocksByCodes(IEnumerable<string> codes = null)
+        {
+            return GetStocks().Where(x => codes == null || codes.Contains(x.Code)).ToList();
+        }
+
+        public bool CheckStockDetailExists(long stockId, long date)
+        {
+            return UnitOfWork.StockRepository.FindBy(x => x.Id.Equals(stockId)).First().StockDetails
+                .Any(x => x.Date.Equals(date));
         }
 
         public StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity)
@@ -127,11 +142,15 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                     stockDetails.DateTimeLastModified = dateTime;
 
                     UnitOfWork.StockDetailRepository.Update(stockDetails);
+                    UnitOfWork.Save();
+
+                    return stockDetails;
                 }
                 else
                 {
                     var stockDetails = new StockDetailEntity
                     {
+                        StockId = stock.Id,
                         Date = stockDetailEntity.Date,
                         Price = stockDetailEntity.Price,
                         Change = stockDetailEntity.Change,
@@ -145,13 +164,14 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                         DateTimeCreated = dateTime,
                     };
 
-                    UnitOfWork.StockDetailRepository.Add(stockDetails);
+                    stock.StockDetails.Add(stockDetails);
+
+                    UnitOfWork.StockRepository.Update(stock);
+                    UnitOfWork.Save();
+
+                    return stockDetails;
                 }
-
-                UnitOfWork.Save();
             }
-
-            return null;
         }
     }
 }
