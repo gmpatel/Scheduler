@@ -7,8 +7,8 @@
     <ProjectGuid>{108E3074-3FC4-4975-915D-932DC112F65E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Racing.Market.Jobs</RootNamespace>
-    <AssemblyName>Racing.Market.Jobs</AssemblyName>
+    <RootNamespace>BET.Market.Jobs</RootNamespace>
+    <AssemblyName>BET.Market.Jobs</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <NuGetPackageImportStamp>
@@ -42,6 +42,10 @@
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.IndexingExtensions, Version=1.0.1.26117, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\..\packages\EntityFramework.IndexingExtensions.1.0.1\lib\net40\EntityFramework.IndexingExtensions.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
@@ -83,6 +87,21 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Core\Entities\MeetingEntity.cs" />
+    <Compile Include="Core\Entities\RaceEntity.cs" />
+    <Compile Include="Core\Entities\RunnerEntity.cs" />
+    <Compile Include="Core\Entities\VenueEntity.cs" />
+    <Compile Include="Core\Helpers\GeneralHelpers.cs" />
+    <Compile Include="DataAccess\EF\DBMigrationConfiguration.cs" />
+    <Compile Include="DataAccess\EF\Defaults\DataContext.cs" />
+    <Compile Include="DataAccess\EF\Defaults\DataService.cs" />
+    <Compile Include="DataAccess\EF\Defaults\Repository.cs" />
+    <Compile Include="DataAccess\EF\Defaults\UnitOfWork.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IDataContext.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IDataService.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IRepository.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IUnitOfWork.cs" />
+    <Compile Include="DataAccess\EF\MigrateDatabaseToLatestVersionExtended.cs" />
     <Compile Include="ScrapeDailyRaces.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -92,6 +111,9 @@
       <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="DataAccess\EF\Migrations\DBContextMigrations\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets" Condition="Exists('..\..\packages\Selenium.Chrome.WebDriver.2.30\build\Selenium.Chrome.WebDriver.targets')" />

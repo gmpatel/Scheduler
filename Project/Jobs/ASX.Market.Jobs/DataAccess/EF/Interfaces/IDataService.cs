@@ -14,7 +14,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
         IList<IndexEntity> GetIndicesByCodes(IEnumerable<string> codes = null);
         IList<StockEntity> GetStocks(long? id = null);
         IList<StockEntity> GetStocksByCodes(IEnumerable<string> codes = null);
-        StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity);
+        StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity, DateTime dateTime);
         bool CheckStockDetailExists(long stockId, long date);
     }
 }

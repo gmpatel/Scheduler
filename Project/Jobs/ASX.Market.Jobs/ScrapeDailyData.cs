@@ -23,6 +23,7 @@ namespace ASX.Market.Jobs
     public class ScrapeDailyData : SchedulerJobBase
     {
         private readonly string fileName;
+        private readonly DateTime dateTime;
 
         public IDataService DataService { get; private set; }
 
@@ -33,7 +34,8 @@ namespace ASX.Market.Jobs
         public ScrapeDailyData(IDataService dataService)
         {
             this.DataService = dataService;
-            this.fileName = string.Format("{0}.{1:yyyyMMdd}.{2:HHmmss}", this.GetType().FullName, DateTime.Now, DateTime.Now);
+            this.dateTime = DateTime.Now;
+            this.fileName = string.Format("{0}.{1:yyyyMMdd}.{2:HHmmss}", this.GetType().FullName, this.dateTime, this.dateTime);
         }
 
         public override void Run()
@@ -59,9 +61,11 @@ namespace ASX.Market.Jobs
                         driver.Navigate().GoToUrl(e.Url);
 
                         var button = driver.GetElement(By.XPath("/html/body/div[2]/div[9]/div/div[3]/div/a[1]"));
+                        GeneralHelpers.Wait(3000);
+
                         button?.Click();
 
-                        GeneralHelpers.Wait(5000);
+                        GeneralHelpers.Wait(10000);
                         var rows = driver.GetElements(By.XPath(@"//*[@id='asx_sp_table']/tbody/tr"));
 
                         if (rows != null && rows.Any())
@@ -84,7 +88,7 @@ namespace ASX.Market.Jobs
 
                             foreach (var s in list)
                             {
-                                resultedList.Add(this.DataService.PushStockDetail(e.Id, s));
+                                resultedList.Add(this.DataService.PushStockDetail(e.Id, s, this.dateTime));
                             }
 
                             File.WriteAllText(string.Format("{0}.{1}.json", fileName, e.Code), JsonConvert.SerializeObject(resultedList, Formatting.Indented));

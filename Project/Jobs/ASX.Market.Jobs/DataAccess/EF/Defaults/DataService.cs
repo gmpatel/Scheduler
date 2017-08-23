@@ -73,9 +73,8 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                 .Any(x => x.Date.Equals(date));
         }
 
-        public StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity)
+        public StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity, DateTime dateTime)
         {
-            var dateTime = DateTime.Now;
             var indexEntity = default(IndexEntity);
 
             if (indexId != null)
@@ -167,6 +166,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                         OneYearChange = stockDetailEntity.OneYearChange,
                         Flag1 = stockDetailEntity.Flag1,
                         DateTimeCreated = dateTime,
+                        DateTimeLastModified = dateTime
                     };
 
                     stock.StockDetails.Add(stockDetails);

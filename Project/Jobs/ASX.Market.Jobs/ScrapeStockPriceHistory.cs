@@ -19,6 +19,7 @@ namespace ASX.Market.Jobs
     public class ScrapeStockPriceHistory : SchedulerJobBase
     {
         private readonly string fileName;
+        private readonly DateTime dateTime;
 
         public IDataService DataService { get; private set; }
 
@@ -29,7 +30,8 @@ namespace ASX.Market.Jobs
         public ScrapeStockPriceHistory(IDataService dataService)
         {
             this.DataService = dataService;
-            this.fileName = string.Format("{0}.{1:yyyyMMdd}.{2:HHmmss}", this.GetType().FullName, DateTime.Now, DateTime.Now);
+            this.dateTime = DateTime.Now;
+            this.fileName = string.Format("{0}.{1:yyyyMMdd}.{2:HHmmss}", this.GetType().FullName, this.dateTime, this.dateTime);
         }
 
         public override void Run()
@@ -87,7 +89,7 @@ namespace ASX.Market.Jobs
                             {
                                 if (!DataService.CheckStockDetailExists(e.Id, s.Date))
                                 {
-                                    resultedList.Add(this.DataService.PushStockDetail(e.Id, s));
+                                    resultedList.Add(this.DataService.PushStockDetail(e.Id, s, this.dateTime));
                                 }
                             }
 

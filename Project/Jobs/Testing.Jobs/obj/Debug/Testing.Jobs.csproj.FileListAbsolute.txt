@@ -5,13 +5,11 @@ D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\ASX.Market.Jobs.dl
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\EntityFramework.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\EntityFramework.SqlServer.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\Quartz.dll
-D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\Racing.Market.Jobs.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\Scheduler.Core.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\WebDriver.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\Newtonsoft.Json.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\EntityFramework.IndexingExtensions.dll
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\ASX.Market.Jobs.pdb
-D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\Racing.Market.Jobs.pdb
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\EntityFramework.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\EntityFramework.SqlServer.xml
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\WebDriver.xml
@@ -19,3 +17,5 @@ D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\Newtonsoft.Json.xm
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\obj\Debug\Testing.Jobs.csprojResolveAssemblyReference.cache
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\obj\Debug\Testing.Jobs.exe
 D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\obj\Debug\Testing.Jobs.pdb
+D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\BET.Market.Jobs.dll
+D:\Projects\GIT\Scheduler\Project\Jobs\Testing.Jobs\bin\Debug\BET.Market.Jobs.pdb

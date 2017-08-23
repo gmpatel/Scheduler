@@ -18,7 +18,7 @@ AS
 	DECLARE @High decimal (18,2)
 	DECLARE @Low decimal (18,2)
 	
-	DECLARE SqlCursor CURSOR FOR SELECT Code, Name, StockId, Date, BuyIndicator, Price, Change, ChangePercent, OneYearChangePercent, High, Low FROM vStocks WHERE Code = @StockCode AND [Date] >= @FromDate order by [Date]
+	DECLARE SqlCursor CURSOR FOR SELECT StockCode, StockName, StockId, Date, BuyIndicator, Price, Change, ChangePercent, OneYearChangePercent, High, Low FROM vStocks WHERE StockCode = @StockCode AND [Date] >= @FromDate order by [Date]
 
 	OPEN SqlCursor
 	FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low

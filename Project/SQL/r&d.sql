@@ -1,17 +1,20 @@
-select * from vStocks where Code = 'ALL' order by BuyIndicator desc, code asc, date desc 
+select * from vStocks where StockCode = 'ALL' order by BuyIndicator desc, StockCode asc, date desc 
+select * from vStocks where StockName like 'the star ent%'
 
-select * from vStocks where stockid in (427, 470)
+select * from vStocks where stockCode = 'SGR' order by date desc
 
-select StockId, count(*) [Rows] from [dbo].[StockDetails] group by StockId order by [Rows] desc
+select StockId, max(DateTimeLastModified) [DateTimeLastModified], count(*) [Rows] from [dbo].[StockDetails] group by StockId order by [DateTimeLastModified], [Rows] desc
+select * from StockDetails where StockId = 95 order by date desc
 
-update StockDetails set Flag1 = 1 where StockId in (select distinct(stockId) from StockDetails where Flag1 = 1) and Flag1 = 0
+exec spStockMovementOverview 'A2M'
+select * from vStocks where StockCode = 'MIN' order by date desc
 
-
-exec spStockMovementOverview 'CBA'
 --SELECT * FROM vStocks WHERE Code = 'ALL'  order by [Date]
 
-   
+select distinct(StockName) from vStocks where BuyIndicator = 1
 
 select datename(dw, cast(convert(nvarchar(4), 20170814/10000) + '-' + right('00' + convert(nvarchar(2), (20170814%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (20170814%100)), 2) + ' 00:00:00' as datetime))
 
 select * from indices
+
+select * from vStocks where stockid = 1 order by date desc

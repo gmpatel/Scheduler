@@ -73,9 +73,9 @@
       <Project>{bd151b7a-e125-44f0-b0a8-d5106b8f185f}</Project>
       <Name>ASX.Market.Jobs</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Racing.Market.Jobs\Racing.Market.Jobs.csproj">
+    <ProjectReference Include="..\Racing.Market.Jobs\BET.Market.Jobs.csproj">
       <Project>{108e3074-3fc4-4975-915d-932dc112f65e}</Project>
-      <Name>Racing.Market.Jobs</Name>
+      <Name>BET.Market.Jobs</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup />

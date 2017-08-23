@@ -7,9 +7,9 @@ AS
 	select x.*, y.IndexCode [Indices] from
 	(
 		select 
-		  s.Code,
-		  s.Name,
 		  s.Id [StockId],
+		  s.Code [StockCode],
+		  s.Name [StockName],
 		  sd.Date,
 		  sd.Flag1 [BuyIndicator],
 		  sd.Price,
