@@ -18,6 +18,9 @@ namespace ASX.Market.Jobs.Core.Entities
         [JsonProperty(PropertyName = "name", Order = 3, DefaultValueHandling = DefaultValueHandling.Include)]
         public string Name { get; set; }
 
+        [JsonProperty(PropertyName = "flag1", Order = 4, DefaultValueHandling = DefaultValueHandling.Include)]
+        public bool Flag1 { get; set; }
+
         [JsonIgnore]
         public DateTime DateTimeCreated { get; set; }
 
@@ -29,5 +32,8 @@ namespace ASX.Market.Jobs.Core.Entities
 
         [JsonIgnore]
         public virtual ICollection<StockDetailEntity> StockDetails { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<StockDetailAggregatedEntity> StockDetailAggregated { get; set; }
     }
 }

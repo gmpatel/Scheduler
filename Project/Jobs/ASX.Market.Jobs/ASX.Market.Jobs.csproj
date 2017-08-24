@@ -98,6 +98,7 @@
     <Compile Include="Core\Entities\ExchangeEntity.cs" />
     <Compile Include="Core\Entities\IndexDetailEntity.cs" />
     <Compile Include="Core\Entities\IndexEntity.cs" />
+    <Compile Include="Core\Entities\StockDetailAggregatedEntity.cs" />
     <Compile Include="Core\Entities\StockDetailEntity.cs" />
     <Compile Include="Core\Entities\StockEntity.cs" />
     <Compile Include="Core\Helpers\GeneralHelpers.cs" />

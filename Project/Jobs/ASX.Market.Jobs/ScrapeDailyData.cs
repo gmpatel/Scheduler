@@ -125,6 +125,8 @@ namespace ASX.Market.Jobs
             {
                 throw new ExceptionBunch(string.Format("There are {0} processes of the job have been failed.", exceptions.Count), exceptions);
             }
+
+            this.DataService.UpdateStockMovementData();
         }
 
         private StockDetailEntity GetStockDetailEntity(IReadOnlyCollection<IWebElement> cells)

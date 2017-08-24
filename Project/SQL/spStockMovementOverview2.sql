@@ -1,15 +1,14 @@
-IF (OBJECT_ID('[dbo].[spStockMovementOverview]') IS NOT NULL)
-  DROP PROCEDURE [dbo].[spStockMovementOverview]
+IF (OBJECT_ID('[dbo].[spStockMovementOverview2]') IS NOT NULL)
+  DROP PROCEDURE [dbo].[spStockMovementOverview2]
 GO
 
-CREATE PROC [dbo].[spStockMovementOverview]
+CREATE PROC [dbo].[spStockMovementOverview2]
  @StockCode nvarchar(50),
  @FromDate bigint = 20170201
 AS
 	DECLARE @Code nvarchar(50)
 	DECLARE @Name nvarchar(50)
 	DECLARE @StockId bigint
-	DECLARE @Favourite bit
 	DECLARE @Date bigint
 	DECLARE @BuyIndicator bit
 	DECLARE @Price decimal (18,2)
@@ -19,10 +18,10 @@ AS
 	DECLARE @High decimal (18,2)
 	DECLARE @Low decimal (18,2)
 	
-	DECLARE SqlCursor CURSOR FOR SELECT StockCode, StockName, StockId, Favourite, Date, BuyIndicator, Price, Change, ChangePercent, OneYearChangePercent, High, Low FROM vStocks WHERE StockCode = @StockCode AND [Date] >= @FromDate order by [Date]
+	DECLARE SqlCursor CURSOR FOR SELECT StockCode, StockName, StockId, Date, BuyIndicator, Price, Change, ChangePercent, OneYearChangePercent, High, Low FROM vStocks WHERE StockCode = @StockCode AND [Date] >= @FromDate order by [Date]
 
 	OPEN SqlCursor
-	FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Favourite, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
+	FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
 
 	DECLARE @StartDate bigint
 	DECLARE @StartDay nvarchar(50)
@@ -42,6 +41,9 @@ AS
 	DECLARE @Min decimal (18,2)
 	DECLARE @ChangeIndicator nvarchar(50)
 
+	DECLARE @DateTimeNow datetime
+	SET @DateTimeNow = getdate()
+	
 	DECLARE @Counter bigint
 	SET @Counter = 0
 
@@ -50,9 +52,6 @@ AS
 
 	Create Table #StockMovementSummary (
 	  SotckId bigint,
-	  StockCode nvarchar(50),
-	  StockName nvarchar(100),
-	  Favourite bit,
 	  MovementDays bigint,
 	  MovementDirection nvarchar(50),
 	  StartDate bigint,
@@ -70,7 +69,9 @@ AS
 	  MaxPrice decimal(18,2),
 	  MinPrice decimal(18,2),
 	  OverallMaxPrice decimal(18,2),
-	  OverallMinPrice decimal(18,2)
+	  OverallMinPrice decimal(18,2),
+	  DateTimeCreated datetime,
+	  DateTimeLastModified datetime
 	)
 
 	WHILE @@FETCH_STATUS = 0   
@@ -141,7 +142,7 @@ AS
 			  SET @StartPrice = @EndPrice - @TotalChanged
 			 END
 			
-			INSERT INTO #StockMovementSummary values (@StockId, @Code, @Name, @Favourite, @Counter - 1, @ChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin)
+			INSERT INTO #StockMovementSummary values (@StockId, @Counter - 1, @ChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin, @DateTimeNow, null)
 
 			SET @Counter = 1
 			SET @StartDate = @Date
@@ -168,7 +169,7 @@ AS
 		  END
 		 END
 
-		FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Favourite, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
+		FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
 		IF @@FETCH_STATUS != 0
 		BEGIN
 		  SET @NewRowCounter = @NewRowCounter - 1
@@ -177,7 +178,7 @@ AS
 			SET @StartPrice = @EndPrice + @TotalChanged
 		   END
 
-		  INSERT INTO #StockMovementSummary values (@StockId, @Code, @Name, @Favourite, @Counter, @CurrentChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin)
+		  INSERT INTO #StockMovementSummary values (@StockId, @Counter, @CurrentChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin, @DateTimeNow, null)
 		END
 	END   
 

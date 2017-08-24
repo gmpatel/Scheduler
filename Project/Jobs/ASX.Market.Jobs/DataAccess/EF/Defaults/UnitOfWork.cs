@@ -12,6 +12,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
         private Repository<IndexEntity> indexRepository;
         private Repository<StockEntity> stockRepository;
         private Repository<StockDetailEntity> stockDetailRepository;
+        private Repository<StockDetailAggregatedEntity> stockDetailAggregatedRepository;
 
         public long Id { get; private set; }
         public long Instances => counter;
@@ -77,6 +78,19 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                 }
 
                 return this.stockDetailRepository;
+            }
+        }
+        
+        public IRepository<StockDetailAggregatedEntity> StockDetailAggregatedRepository
+        {
+            get
+            {
+                if (this.stockDetailAggregatedRepository == null)
+                {
+                    this.stockDetailAggregatedRepository = new Repository<StockDetailAggregatedEntity>(DbContext);
+                }
+
+                return this.stockDetailAggregatedRepository;
             }
         }
 

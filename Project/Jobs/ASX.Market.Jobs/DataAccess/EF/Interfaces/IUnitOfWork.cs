@@ -12,6 +12,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
         IRepository<IndexEntity> IndexRepository { get; }
         IRepository<StockEntity> StockRepository { get; }
         IRepository<StockDetailEntity> StockDetailRepository { get; }
+        IRepository<StockDetailAggregatedEntity> StockDetailAggregatedRepository { get; }
         int Save();
     }
 }

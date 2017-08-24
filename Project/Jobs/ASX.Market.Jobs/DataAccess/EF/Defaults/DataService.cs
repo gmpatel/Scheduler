@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Data.Entity.Core.Metadata.Edm;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
@@ -73,6 +74,11 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                 .Any(x => x.Date.Equals(date));
         }
 
+        public void UpdateStockMovementData()
+        {
+            ((DbContext) UnitOfWork.StockDetailAggregatedRepository.DbContext).Database.ExecuteSqlCommand("exec [dbo].[spUpdateStockMovementData]");
+        }
+
         public StockDetailEntity PushStockDetail(long? indexId, StockDetailEntity stockDetailEntity, DateTime dateTime)
         {
             var indexEntity = default(IndexEntity);
@@ -103,6 +109,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                 {
                     Code = stockDetailEntity.Stock.Code.ToUpper(),
                     Name = stockDetailEntity.Stock.Name,
+                    Flag1 = false,
                     DateTimeCreated = dateTime,
                     StockDetails = new List<StockDetailEntity>
                     {
@@ -173,7 +180,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
 
                     UnitOfWork.StockRepository.Update(stock);
                     UnitOfWork.Save();
-
+                    
                     return stockDetails;
                 }
             }

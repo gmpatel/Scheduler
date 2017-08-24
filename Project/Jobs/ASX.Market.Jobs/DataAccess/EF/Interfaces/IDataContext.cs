@@ -15,5 +15,8 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
         
         DbSet<ExchangeEntity> Exchanges { get; set; }
         DbSet<IndexEntity> Indices { get; set; }
+        DbSet<StockEntity> Stocks { get; set; }
+        DbSet<StockDetailEntity> StockDetails { get; set; }
+        DbSet<StockDetailAggregatedEntity> StockDetailsAggregated { get; set; }
     }
 }
