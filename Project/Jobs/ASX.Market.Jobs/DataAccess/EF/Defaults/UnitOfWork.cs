@@ -1,5 +1,6 @@
 ﻿using System;
 using ASX.Market.Jobs.Core.Entities;
+using ASX.Market.Jobs.Core.Entities.Views;
 using ASX.Market.Jobs.DataAccess.EF.Interfaces;
 
 namespace ASX.Market.Jobs.DataAccess.EF.Defaults
@@ -13,6 +14,10 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
         private Repository<StockEntity> stockRepository;
         private Repository<StockDetailEntity> stockDetailRepository;
         private Repository<StockDetailAggregatedEntity> stockDetailAggregatedRepository;
+
+        private ViewRepository<StocksView> stocksViewRepository;
+        private ViewRepository<StocksAggregatedView> stocksAggregatedViewRepository;
+        private ViewRepository<StocksLatestMovementView> stocksLatestMovementViewRepository;
 
         public long Id { get; private set; }
         public long Instances => counter;
@@ -94,6 +99,45 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
             }
         }
 
+        public IViewRepository<StocksView> StocksViewRepository
+        {
+            get
+            {
+                if (this.stocksViewRepository == null)
+                {
+                    this.stocksViewRepository = new ViewRepository<StocksView>(DbContext);
+                }
+
+                return this.stocksViewRepository;
+            }
+        }
+
+        public IViewRepository<StocksAggregatedView> StocksAggregatedViewRepository
+        {
+            get
+            {
+                if (this.stocksAggregatedViewRepository == null)
+                {
+                    this.stocksAggregatedViewRepository = new ViewRepository<StocksAggregatedView>(DbContext);
+                }
+
+                return this.stocksAggregatedViewRepository;
+            }
+        }
+
+        public IViewRepository<StocksLatestMovementView> StocksLatestMovementViewRepository
+        {
+            get
+            {
+                if (this.stocksLatestMovementViewRepository == null)
+                {
+                    this.stocksLatestMovementViewRepository = new ViewRepository<StocksLatestMovementView>(DbContext);
+                }
+
+                return this.stocksLatestMovementViewRepository;
+            }
+        }
+        
         public void Dispose()
         {
             Dispose(true);

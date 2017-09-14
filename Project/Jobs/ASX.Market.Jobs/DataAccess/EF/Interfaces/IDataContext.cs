@@ -2,6 +2,7 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using ASX.Market.Jobs.Core.Entities;
+using ASX.Market.Jobs.Core.Entities.Views;
 
 namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
 {
@@ -18,5 +19,6 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
         DbSet<StockEntity> Stocks { get; set; }
         DbSet<StockDetailEntity> StockDetails { get; set; }
         DbSet<StockDetailAggregatedEntity> StockDetailsAggregated { get; set; }
+        DbSet<StockDetailAggregatedLatestMovementEntity> StockDetailAggregatedLatestMovements { get; set; }
     }
 }

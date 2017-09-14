@@ -35,5 +35,8 @@ namespace ASX.Market.Jobs.Core.Entities
 
         [JsonIgnore]
         public virtual ICollection<StockDetailAggregatedEntity> StockDetailAggregated { get; set; }
+
+        [JsonIgnore]
+        public virtual ICollection<StockDetailAggregatedLatestMovementEntity> StockDetailAggregatedLatestMovements { get; set; }
     }
 }

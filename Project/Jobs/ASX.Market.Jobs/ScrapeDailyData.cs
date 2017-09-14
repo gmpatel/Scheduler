@@ -91,7 +91,8 @@ namespace ASX.Market.Jobs
                                 resultedList.Add(this.DataService.PushStockDetail(e.Id, s, this.dateTime));
                             }
 
-                            File.WriteAllText(string.Format("{0}.{1}.json", fileName, e.Code), JsonConvert.SerializeObject(resultedList, Formatting.Indented));
+                            var jsonFile = string.Format("{0}.{1}.{2:0000}.json", fileName, e.Code, resultedList.Count);
+                            File.WriteAllText(jsonFile, JsonConvert.SerializeObject(resultedList, Formatting.Indented));
                         }
                     }
                     catch (Exception exception)

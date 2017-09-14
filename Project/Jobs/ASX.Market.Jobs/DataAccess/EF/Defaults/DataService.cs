@@ -50,6 +50,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
 
         public IList<IndexEntity> GetIndices(long? exchangeId = null)
         {
+            //var xyz = UnitOfWork.StocksViewRepository.FindBy(x => x.StockCode.Equals("CBA")).ToList();
             return UnitOfWork.IndexRepository.FindBy(x => (exchangeId == null || x.ExchangeId == exchangeId.Value)).ToList();
         }
 

@@ -101,14 +101,17 @@
     <Compile Include="Core\Entities\StockDetailAggregatedEntity.cs" />
     <Compile Include="Core\Entities\StockDetailEntity.cs" />
     <Compile Include="Core\Entities\StockEntity.cs" />
+    <Compile Include="Core\Entities\StockDetailAggregatedLatestMovementEntity.cs" />
     <Compile Include="Core\Helpers\GeneralHelpers.cs" />
     <Compile Include="DataAccess\EF\DBMigrationConfiguration.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataContext.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataService.cs" />
+    <Compile Include="DataAccess\EF\Defaults\ViewRepository.cs" />
     <Compile Include="DataAccess\EF\Defaults\Repository.cs" />
     <Compile Include="DataAccess\EF\Defaults\UnitOfWork.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IDataContext.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IDataService.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IViewRepository.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IRepository.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IUnitOfWork.cs" />
     <Compile Include="DataAccess\EF\MigrateDatabaseToLatestVersionExtended.cs" />

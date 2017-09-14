@@ -3,6 +3,7 @@ using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using System.Data.Entity.ModelConfiguration.Conventions;
 using ASX.Market.Jobs.Core.Entities;
+using ASX.Market.Jobs.Core.Entities.Views;
 using ASX.Market.Jobs.DataAccess.EF.Interfaces;
 
 namespace ASX.Market.Jobs.DataAccess.EF.Defaults
@@ -34,7 +35,8 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
         public DbSet<StockEntity> Stocks { get; set; }
         public DbSet<StockDetailEntity> StockDetails { get; set; }
         public DbSet<StockDetailAggregatedEntity> StockDetailsAggregated { get; set; }
-
+        public DbSet<StockDetailAggregatedLatestMovementEntity> StockDetailAggregatedLatestMovements { get; set; }
+        
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -102,6 +104,29 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
             modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.OverallMinPrice).IsOptional();
             modelBuilder.Entity<StockDetailAggregatedEntity>().HasKey(x => new { x.Id });
 
+            modelBuilder.Entity<StockDetailAggregatedLatestMovementEntity>().ToTable("StockDetailsAggregatedLatestMovement");
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.StockId).IsRequired();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.MovementDays).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.MovementDirection).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.StartDate).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.StartDay).HasColumnType("nvarchar").HasMaxLength(256).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.StartPrice).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.StartIndicator).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.EndDate).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.EndDay).HasColumnType("nvarchar").HasMaxLength(256).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.EndPrice).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.EndIndicator).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.Changed).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.ChangedPercent).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.OverallChanged).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.OverallChangedPercent).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.MaxPrice).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.MinPrice).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.OverallMaxPrice).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().Property(x => x.OverallMinPrice).IsOptional();
+            modelBuilder.Entity<StockDetailAggregatedEntity>().HasKey(x => new { x.Id });
+
             modelBuilder.Entity<ExchangeEntity>()
                 .HasMany(x => x.Indices)
                 .WithRequired()
@@ -116,7 +141,12 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
                 .HasMany(x => x.StockDetailAggregated)
                 .WithRequired()
                 .HasForeignKey(x => x.StockId);
-            
+
+            modelBuilder.Entity<StockEntity>()
+                .HasMany(x => x.StockDetailAggregatedLatestMovements)
+                .WithRequired()
+                .HasForeignKey(x => x.StockId);
+
             modelBuilder.Entity<IndexEntity>()
                 .HasMany<StockEntity>(u => u.Stocks)
                 .WithMany(c => c.Indices)
@@ -154,6 +184,13 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
 
             modelBuilder.Entity<StockDetailAggregatedEntity>().HasIndex(
                 "IX_NC_UNIQ_StockDetailAggregated_Date_StockId",
+                IndexOptions.Unique,
+                k => k.Property(x => x.StartDate),
+                k => k.Property(x => x.StockId)
+            );
+
+            modelBuilder.Entity<StockDetailAggregatedLatestMovementEntity>().HasIndex(
+                "IX_NC_UNIQ_StockDetailAggregatedLatestMovement_Date_StockId",
                 IndexOptions.Unique,
                 k => k.Property(x => x.StartDate),
                 k => k.Property(x => x.StockId)
