@@ -2,7 +2,6 @@
 using System.Data.Entity;
 using System.Data.Entity.Infrastructure;
 using ASX.Market.Jobs.Core.Entities;
-using ASX.Market.Jobs.Core.Entities.Views;
 
 namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
 {

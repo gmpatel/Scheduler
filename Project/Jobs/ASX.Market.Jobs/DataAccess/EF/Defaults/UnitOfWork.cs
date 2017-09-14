@@ -1,6 +1,5 @@
 ﻿using System;
 using ASX.Market.Jobs.Core.Entities;
-using ASX.Market.Jobs.Core.Entities.Views;
 using ASX.Market.Jobs.DataAccess.EF.Interfaces;
 
 namespace ASX.Market.Jobs.DataAccess.EF.Defaults
@@ -14,10 +13,7 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
         private Repository<StockEntity> stockRepository;
         private Repository<StockDetailEntity> stockDetailRepository;
         private Repository<StockDetailAggregatedEntity> stockDetailAggregatedRepository;
-
-        private ViewRepository<StocksView> stocksViewRepository;
-        private ViewRepository<StocksAggregatedView> stocksAggregatedViewRepository;
-        private ViewRepository<StocksLatestMovementView> stocksLatestMovementViewRepository;
+        private Repository<StockDetailAggregatedLatestMovementEntity> stockDetailAggregatedLatestMovementRepository;
 
         public long Id { get; private set; }
         public long Instances => counter;
@@ -99,42 +95,16 @@ namespace ASX.Market.Jobs.DataAccess.EF.Defaults
             }
         }
 
-        public IViewRepository<StocksView> StocksViewRepository
+        public IRepository<StockDetailAggregatedLatestMovementEntity> StockDetailAggregatedLatestMovementRepository
         {
             get
             {
-                if (this.stocksViewRepository == null)
+                if (this.stockDetailAggregatedLatestMovementRepository == null)
                 {
-                    this.stocksViewRepository = new ViewRepository<StocksView>(DbContext);
+                    this.stockDetailAggregatedLatestMovementRepository = new Repository<StockDetailAggregatedLatestMovementEntity>(DbContext);
                 }
 
-                return this.stocksViewRepository;
-            }
-        }
-
-        public IViewRepository<StocksAggregatedView> StocksAggregatedViewRepository
-        {
-            get
-            {
-                if (this.stocksAggregatedViewRepository == null)
-                {
-                    this.stocksAggregatedViewRepository = new ViewRepository<StocksAggregatedView>(DbContext);
-                }
-
-                return this.stocksAggregatedViewRepository;
-            }
-        }
-
-        public IViewRepository<StocksLatestMovementView> StocksLatestMovementViewRepository
-        {
-            get
-            {
-                if (this.stocksLatestMovementViewRepository == null)
-                {
-                    this.stocksLatestMovementViewRepository = new ViewRepository<StocksLatestMovementView>(DbContext);
-                }
-
-                return this.stocksLatestMovementViewRepository;
+                return this.stockDetailAggregatedLatestMovementRepository;
             }
         }
         

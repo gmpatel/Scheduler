@@ -1,6 +1,5 @@
 ﻿using System;
 using ASX.Market.Jobs.Core.Entities;
-using ASX.Market.Jobs.Core.Entities.Views;
 using ASX.Market.Jobs.DataAccess.EF.Defaults;
 
 namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
@@ -17,11 +16,8 @@ namespace ASX.Market.Jobs.DataAccess.EF.Interfaces
         IRepository<StockEntity> StockRepository { get; }
         IRepository<StockDetailEntity> StockDetailRepository { get; }
         IRepository<StockDetailAggregatedEntity> StockDetailAggregatedRepository { get; }
-
-        IViewRepository<StocksView> StocksViewRepository { get; }
-        IViewRepository<StocksAggregatedView> StocksAggregatedViewRepository { get; }
-        IViewRepository<StocksLatestMovementView> StocksLatestMovementViewRepository { get; }
-
+        IRepository<StockDetailAggregatedLatestMovementEntity> StockDetailAggregatedLatestMovementRepository { get; }
+        
         int Save();
     }
 }
