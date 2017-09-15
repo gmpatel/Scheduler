@@ -9,3 +9,8 @@ D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Entity
 D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Newtonsoft.Json.xml
 D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.dll
 D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.pdb
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.Properties.Resources.resources
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.csproj.GenerateResource.Cache
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.Properties.Templates.resources
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\EntityFramework.IndexingExtensions.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.csprojResolveAssemblyReference.cache
