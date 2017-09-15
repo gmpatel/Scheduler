@@ -1,0 +1,560 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="InitialStoredProcsAndViews20170915_Down" xml:space="preserve">
+    <value>IF (OBJECT_ID('[dbo].[spStockMovementOverview]') IS NOT NULL)
+  DROP PROCEDURE [dbo].[spStockMovementOverview]
+GO
+
+IF (OBJECT_ID('[dbo].[spUpdateStockMovementData]') IS NOT NULL)
+  DROP PROCEDURE [dbo].[spUpdateStockMovementData]
+GO
+
+IF (OBJECT_ID('[dbo].[vStocks]') IS NOT NULL)
+  DROP VIEW [dbo].[vStocks]
+GO
+
+IF (OBJECT_ID('[dbo].[vStocksAggregated]') IS NOT NULL)
+  DROP VIEW [dbo].[vStocksAggregated]
+GO
+
+IF (OBJECT_ID('[dbo].[vStocksLatestMovement]') IS NOT NULL)
+  DROP VIEW [dbo].[vStocksLatestMovement]
+GO</value>
+  </data>
+  <data name="InitialStoredProcsAndViews20170915_Up" xml:space="preserve">
+    <value>-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+IF (OBJECT_ID('[dbo].[spStockMovementOverview]') IS NOT NULL)
+  DROP PROCEDURE [dbo].[spStockMovementOverview]
+GO
+
+CREATE PROC [dbo].[spStockMovementOverview]
+ @StockCode nvarchar(50),
+ @FromDate bigint = 20170201
+AS
+	DECLARE @Code nvarchar(50)
+	DECLARE @Name nvarchar(50)
+	DECLARE @StockId bigint
+	DECLARE @Date bigint
+	DECLARE @BuyIndicator bit
+	DECLARE @Price decimal (18,2)
+	DECLARE @Change decimal (18,2)
+	DECLARE @ChangePercent decimal (18,2)
+	DECLARE @OneYearChangePercent decimal (18,2)
+	DECLARE @High decimal (18,2)
+	DECLARE @Low decimal (18,2)
+	
+	DECLARE SqlCursor CURSOR FOR SELECT StockCode, StockName, StockId, Date, BuyIndicator, Price, Change, ChangePercent, OneYearChangePercent, High, Low FROM vStocks WHERE StockCode = @StockCode AND [Date] &gt;= @FromDate order by [Date]
+
+	OPEN SqlCursor
+	FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
+
+	DECLARE @StartDate bigint
+	DECLARE @StartDay nvarchar(50)
+	DECLARE @StartPrice decimal (18,2)
+	DECLARE @StartIndicator bit
+	DECLARE @EndDate bigint
+	DECLARE @EndDay nvarchar(50)
+	DECLARE @EndPrice decimal (18,2)
+	DECLARE @EndIndicator bit
+	DECLARE @TotalChanged decimal (18,2)
+	DECLARE @TotalChangedPercent decimal (18,2)
+	DECLARE @OverallChanged decimal (18,2)
+	DECLARE @OverallChangedPercent decimal (18,2)
+	DECLARE @OverallMax decimal (18,2)
+	DECLARE @OverallMin decimal (18,2)
+	DECLARE @Max decimal (18,2)
+	DECLARE @Min decimal (18,2)
+	DECLARE @ChangeIndicator nvarchar(50)
+
+	DECLARE @DateTimeNow datetime
+	SET @DateTimeNow = getdate()
+	
+	DECLARE @Counter bigint
+	SET @Counter = 0
+
+	DECLARE @NewRowCounter int
+	SET @NewRowCounter = 0
+
+	Create Table #StockMovementSummary (
+	  SotckId bigint,
+	  MovementDays bigint,
+	  MovementDirection nvarchar(50),
+	  StartDate bigint,
+	  StartDay nvarchar(50),
+	  StartPrice decimal(18,2),
+	  StartIndicator bit,
+	  EndDate bigint,
+	  EndDay nvarchar(50),
+	  EndPrice decimal(18,2),
+	  EndIndicator bit,
+	  Changed decimal(18,2),
+	  ChangedPercent decimal(18,2),
+	  OverallChanged decimal(18,2),
+	  OverallChangedPercent decimal(18,2),
+	  MaxPrice decimal(18,2),
+	  MinPrice decimal(18,2),
+	  OverallMaxPrice decimal(18,2),
+	  OverallMinPrice decimal(18,2),
+	  DateTimeCreated datetime,
+	  DateTimeLastModified datetime
+	)
+
+	WHILE @@FETCH_STATUS = 0   
+	BEGIN   
+		SET @Counter = @Counter + 1
+
+		IF @Counter = 1
+		 BEGIN
+		  SET @StartDate = @Date
+		  select @StartDay = datename(dw, cast(convert(nvarchar(4), @StartDate/10000) + '-' + right('00' + convert(nvarchar(2), (@StartDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@StartDate%100)), 2) + ' 00:00:00' as datetime))
+		  SET @StartPrice = @Price
+		  SET @StartIndicator = @BuyIndicator
+		  SET @EndDate = @Date
+		  select @EndDay = datename(dw, cast(convert(nvarchar(4), @EndDate/10000) + '-' + right('00' + convert(nvarchar(2), (@EndDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@EndDate%100)), 2) + ' 00:00:00' as datetime))
+		  SET @EndPrice = @Price
+		  SET @EndIndicator = @BuyIndicator
+		  SET @TotalChanged = @Change
+		  SET @TotalChangedPercent = @ChangePercent
+		  SET @OverallChanged = @Change
+		  SET @OverallChangedPercent = @ChangePercent
+		  SET @Max = @High
+		  SET @Min = @Low
+		  SET @OverallMax = @High
+		  SET @OverallMin = @Low
+	  
+		  IF @Change &lt; 0
+		   SET @ChangeIndicator = 'Down'
+		  ELSE
+		   SET @ChangeIndicator = 'Up'
+		 END
+		ELSE
+		 BEGIN
+		  DECLARE @CurrentChangeIndicator nvarchar(50)
+	  
+		  IF @Change &lt; 0
+		   SET @CurrentChangeIndicator = 'Down'
+		  ELSE
+		   SET @CurrentChangeIndicator = 'Up'
+	  
+		  IF @ChangeIndicator = @CurrentChangeIndicator
+		  BEGIN
+			SET @EndDate = @Date
+			select @EndDay = datename(dw, cast(convert(nvarchar(4), @EndDate/10000) + '-' + right('00' + convert(nvarchar(2), (@EndDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@EndDate%100)), 2) + ' 00:00:00' as datetime))
+			SET @EndPrice = @Price
+			SET @EndIndicator = @BuyIndicator
+			SET @TotalChanged = @TotalChanged + @Change
+			SET @TotalChangedPercent = @TotalChangedPercent + @ChangePercent
+			SET @OverallChanged = @OverallChanged + @Change
+			SET @OverallChangedPercent = @OverallChangedPercent + @ChangePercent
+
+			IF @High &gt; @Max
+			 SET @Max = @High
+
+			IF @Low &lt; @Min
+			 SET @Min = @Low
+
+			IF @High &gt; @OverallMax
+			 SET @OverallMax = @High
+
+			IF @Low &lt; @OverallMin
+			 SET @OverallMin = @Low
+		  END
+		  ELSE
+		  BEGIN
+			SET @NewRowCounter = @NewRowCounter + 1
+			IF @NewRowCounter = 1
+			 BEGIN
+			  SET @StartPrice = @EndPrice - @TotalChanged
+			 END
+			
+			INSERT INTO #StockMovementSummary values (@StockId, @Counter - 1, @ChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin, @DateTimeNow, null)
+
+			SET @Counter = 1
+			SET @StartDate = @Date
+			select @StartDay = datename(dw, cast(convert(nvarchar(4), @StartDate/10000) + '-' + right('00' + convert(nvarchar(2), (@StartDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@StartDate%100)), 2) + ' 00:00:00' as datetime))
+			SET @StartPrice = @EndPrice
+			SET @StartIndicator = @BuyIndicator
+			SET @EndDate = @Date
+			select @EndDay = datename(dw, cast(convert(nvarchar(4), @EndDate/10000) + '-' + right('00' + convert(nvarchar(2), (@EndDate%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (@EndDate%100)), 2) + ' 00:00:00' as datetime))
+			SET @EndPrice = @Price
+			SET @EndIndicator = @BuyIndicator
+			SET @TotalChanged = @Change
+			SET @TotalChangedPercent = @ChangePercent
+			SET @OverallChanged = @OverallChanged + @Change
+			SET @OverallChangedPercent = @OverallChangedPercent + @ChangePercent
+			SET @Max = @High
+			SET @Min = @Low
+			SET @ChangeIndicator = @CurrentChangeIndicator
+
+			IF @High &gt; @OverallMax
+			 SET @OverallMax = @High
+
+			IF @Low &lt; @OverallMin
+			 SET @OverallMin = @Low
+		  END
+		 END
+
+		FETCH NEXT FROM SqlCursor INTO @Code, @Name, @StockId, @Date, @BuyIndicator, @Price, @Change, @ChangePercent, @OneYearChangePercent, @High, @Low
+		IF @@FETCH_STATUS != 0
+		BEGIN
+		  SET @NewRowCounter = @NewRowCounter - 1
+		  IF @NewRowCounter = 1
+		   BEGIN
+			SET @StartPrice = @EndPrice + @TotalChanged
+		   END
+
+		  INSERT INTO #StockMovementSummary values (@StockId, @Counter, @CurrentChangeIndicator, @StartDate, @StartDay, @StartPrice, @StartIndicator, @EndDate, @EndDay, @EndPrice, @EndIndicator, @TotalChanged, @TotalChangedPercent, @OverallChanged, @OverallChangedPercent, @Max, @Min, @OverallMax, @OverallMin, @DateTimeNow, null)
+		END
+	END   
+
+	CLOSE SqlCursor
+	DEALLOCATE SqlCursor
+
+	SELECT * FROM #StockMovementSummary order by StartDate desc
+	DROP TABLE #StockMovementSummary
+GO
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+IF (OBJECT_ID('[dbo].[spUpdateStockMovementData]') IS NOT NULL)
+  DROP PROCEDURE [dbo].[spUpdateStockMovementData]
+GO
+
+CREATE PROC [dbo].[spUpdateStockMovementData]
+ @FromDate bigint = 20170201
+AS
+	TRUNCATE TABLE [dbo].[StockDetailsAggregated]
+
+	DECLARE @Code nvarchar(50)
+	DECLARE SqlCursor2 CURSOR FOR SELECT Code FROM Stocks order by Id
+	OPEN SqlCursor2
+	FETCH NEXT FROM SqlCursor2 INTO @Code
+	
+	WHILE @@FETCH_STATUS = 0   
+	BEGIN   
+		INSERT INTO [dbo].[StockDetailsAggregated] EXEC [dbo].[spStockMovementOverview] @Code, @FromDate
+		FETCH NEXT FROM SqlCursor2 INTO @Code
+	END   
+
+	CLOSE SqlCursor2
+	DEALLOCATE SqlCursor2
+
+	TRUNCATE TABLE [dbo].[StockDetailsAggregatedLatestMovement]
+
+	INSERT INTO
+		[dbo].[StockDetailsAggregatedLatestMovement]
+	SELECT 
+		sa.[StockId],
+        sa.[MovementDays],
+        sa.[MovementDirection],
+        sa.[StartDate],
+        sa.[StartDay],
+        sa.[StartPrice],
+        sa.[StartIndicator],
+        sa.[EndDate],
+        sa.[EndDay],
+        sa.[EndPrice],
+        sa.[EndIndicator],
+        sa.[Changed],
+        sa.[ChangedPercent],
+        sa.[OverallChanged],
+        sa.[OverallChangedPercent],
+        sa.[MaxPrice],
+        sa.[MinPrice],
+        sa.[OverallMaxPrice],
+        sa.[OverallMinPrice],
+        sa.[DateTimeCreated],
+        sa.[DateTimeLastModified]
+	FROM 
+		StockDetailsAggregated sa
+	INNER JOIN
+		(SELECT StockId, MAX(StartDate)[StartDate] FROM StockDetailsAggregated GROUP BY StockId) x 
+	ON 
+		sa.StockId = x.StockId and 
+		sa.StartDate = x.StartDate
+GO
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+IF (OBJECT_ID('[dbo].[vStocks]') IS NOT NULL)
+  DROP VIEW [dbo].[vStocks]
+GO
+
+CREATE VIEW [dbo].[vStocks]
+AS
+	select x.*, y.IndexCode [Indices] from
+	(
+		select 
+		  s.Id [StockId],
+		  s.Code [StockCode],
+		  s.Name [StockName],
+		  s.Flag1 [Favourite],
+		  sd.Date,
+		  sd.Flag1 [BuyIndicator],
+		  sd.Price,
+		  sd.Change,
+		  sd.ChangePercent,
+		  sd.OneYearChange [OneYearChangePercent],
+		  sd.High,
+		  sd.Low,
+		  sd.Volume,
+		  sd.MarketCapital
+		from 
+		  Stocks s 
+		inner join 
+		  StockDetails sd 
+		on 
+		  s.Id = sd.StockId
+	) x
+	left join
+	(
+		select StockId, IndexCode = 
+		  stuff((select ', ' + IndexCode
+			from (select idst.StockId, id.Code [IndexCode] from IndicesStocks idst left join Indices id on idst.IndexId = id.Id) b 
+			where b.StockId = a.StockId
+			for xml path('')), 1, 2, ''
+		  )
+		from (select idst.StockId, id.Code [IndexCode] from IndicesStocks idst left join Indices id on idst.IndexId = id.Id) a
+		group by StockId
+	) y
+	on
+	x.StockId = y.StockId
+GO
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+IF (OBJECT_ID('[dbo].[vStocksAggregated]') IS NOT NULL)
+  DROP VIEW [dbo].[vStocksAggregated]
+GO
+
+CREATE VIEW [dbo].[vStocksAggregated]
+AS
+	select x.*, y.IndexCode [Indices] from
+	(
+		select
+		  s.Id [StockId],
+		  s.Code [StockCode],
+		  s.Name [StockName],
+		  s.Flag1 [Favourite],
+		  sda.MovementDays,
+		  sda.MovementDirection,
+		  sda.StartDate,
+		  sda.StartDay,
+		  sda.StartPrice,
+		  sda.StartIndicator,
+		  sda.EndDate,
+		  sda.EndDay,
+		  sda.EndPrice,
+		  sda.EndIndicator,
+		  sda.Changed,
+		  sda.ChangedPercent,
+		  sda.OverallChanged,
+		  sda.OverallChangedPercent,
+		  sda.MaxPrice,
+		  sda.MinPrice,
+		  sda.OverallMaxPrice,
+		  sda.OverallMinPrice
+		from 
+		  Stocks s 
+		inner join 
+		  StockDetailsAggregated sda 
+		on 
+		  s.Id = sda.StockId
+	) x
+	left join
+	(
+		select StockId, IndexCode = 
+		  stuff((select ', ' + IndexCode
+			from (select idst.StockId, id.Code [IndexCode] from IndicesStocks idst left join Indices id on idst.IndexId = id.Id) b 
+			where b.StockId = a.StockId
+			for xml path('')), 1, 2, ''
+		  )
+		from (select idst.StockId, id.Code [IndexCode] from IndicesStocks idst left join Indices id on idst.IndexId = id.Id) a
+		group by StockId
+	) y
+	on
+	x.StockId = y.StockId
+GO
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------
+
+IF (OBJECT_ID('[dbo].[vStocksLatestMovement]') IS NOT NULL)
+  DROP VIEW [dbo].[vStocksLatestMovement]
+GO
+
+CREATE VIEW [dbo].[vStocksLatestMovement]
+AS
+  select x.*, y.IndexCode [Indices] from
+	(
+		select
+		  s.Id [StockId],
+		  s.Code [StockCode],
+		  s.Name [StockName],
+		  s.Flag1 [Favourite],
+		  sdalm.MovementDays,
+		  sdalm.MovementDirection,
+		  sdalm.StartDate,
+		  sdalm.StartDay,
+		  sdalm.StartPrice,
+		  sdalm.StartIndicator,
+		  sdalm.EndDate,
+		  sdalm.EndDay,
+		  sdalm.EndPrice,
+		  sdalm.EndIndicator,
+		  sdalm.Changed,
+		  sdalm.ChangedPercent,
+		  sdalm.OverallChanged,
+		  sdalm.OverallChangedPercent,
+		  sdalm.MaxPrice,
+		  sdalm.MinPrice,
+		  sdalm.OverallMaxPrice,
+		  sdalm.OverallMinPrice
+		from 
+		  Stocks s 
+		inner join 
+		  StockDetailsAggregatedLatestMovement sdalm 
+		on 
+		  s.Id = sdalm.StockId
+	) x
+	left join
+	(
+		select StockId, IndexCode = 
+		  stuff((select ', ' + IndexCode
+			from (select idst.StockId, id.Code [IndexCode] from IndicesStocks idst left join Indices id on idst.IndexId = id.Id) b 
+			where b.StockId = a.StockId
+			for xml path('')), 1, 2, ''
+		  )
+		from (select idst.StockId, id.Code [IndexCode] from IndicesStocks idst left join Indices id on idst.IndexId = id.Id) a
+		group by StockId
+	) y
+	on
+	x.StockId = y.StockId
+GO
+
+-------------------------------------------------------------------------------------------------------------------
+-------------------------------------------------------------------------------------------------------------------</value>
+  </data>
+</root>

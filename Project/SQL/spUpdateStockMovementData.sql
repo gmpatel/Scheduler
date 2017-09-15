@@ -14,7 +14,7 @@ AS
 	
 	WHILE @@FETCH_STATUS = 0   
 	BEGIN   
-		INSERT INTO [dbo].[StockDetailsAggregated] EXEC [dbo].[spStockMovementOverview2] @Code, @FromDate
+		INSERT INTO [dbo].[StockDetailsAggregated] EXEC [dbo].[spStockMovementOverview] @Code, @FromDate
 		FETCH NEXT FROM SqlCursor2 INTO @Code
 	END   
 

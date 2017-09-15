@@ -1,0 +1,11 @@
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Market.Authentication.dll.config
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Market.Authentication.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Market.Authentication.pdb
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\EntityFramework.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\EntityFramework.SqlServer.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\EntityFramework.xml
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\EntityFramework.SqlServer.xml
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.Authentication\obj\Debug\Market.Authentication.pdb
