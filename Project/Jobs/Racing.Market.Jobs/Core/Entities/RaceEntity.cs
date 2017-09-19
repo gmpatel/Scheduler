@@ -18,13 +18,34 @@ namespace BET.Market.Jobs.Core.Entities
         [JsonProperty(PropertyName = "name", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string Name { get; set; }
 
+        [JsonProperty(PropertyName = "skyId", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public long? SkyId { get; set; }
+
+        [JsonProperty(PropertyName = "time", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Time { get; set; }
+
+        [JsonProperty(PropertyName = "weather", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Weather { get; set; }
+
+        [JsonProperty(PropertyName = "track", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Track { get; set; }
+
+        [JsonProperty(PropertyName = "distance", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Distance { get; set; }
+
+        [JsonProperty(PropertyName = "class", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Class { get; set; }
+
+        [JsonProperty(PropertyName = "prizemoney", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        public string Prizemoney { get; set; }
+
         [JsonIgnore]
         public DateTime DateTimeCreated { get; set; }
 
         [JsonIgnore]
         public DateTime? DateTimeLastModified { get; set; }
 
-        [JsonProperty(PropertyName = "meeting", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonIgnore]
         public virtual MeetingEntity Meeting { get; set; }
 
         [JsonProperty(PropertyName = "runners", DefaultValueHandling = DefaultValueHandling.Ignore)]

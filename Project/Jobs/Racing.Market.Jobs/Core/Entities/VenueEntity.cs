@@ -30,7 +30,7 @@ namespace BET.Market.Jobs.Core.Entities
         [JsonIgnore]
         public DateTime? DateTimeLastModified { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty(PropertyName = "meetings", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public virtual ICollection<MeetingEntity> Meetings { get; set; }
     }
 }

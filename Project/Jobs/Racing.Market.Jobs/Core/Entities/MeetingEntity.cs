@@ -16,7 +16,7 @@ namespace BET.Market.Jobs.Core.Entities
         public long Date { get; set; }
 
         [JsonProperty(PropertyName = "skyId", DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public long SkyId { get; set; }
+        public long? SkyId { get; set; }
 
         [JsonProperty(PropertyName = "tipsUrl", DefaultValueHandling = DefaultValueHandling.Ignore)]
         public string TipsUrl { get; set; }
@@ -30,7 +30,7 @@ namespace BET.Market.Jobs.Core.Entities
         [JsonIgnore]
         public DateTime? DateTimeLastModified { get; set; }
 
-        [JsonProperty(PropertyName = "venue", DefaultValueHandling = DefaultValueHandling.Ignore)]
+        [JsonIgnore]
         public virtual VenueEntity Venue { get; set; }
 
         [JsonProperty(PropertyName = "races", DefaultValueHandling = DefaultValueHandling.Ignore)]

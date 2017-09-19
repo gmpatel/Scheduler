@@ -1,12 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
+using System.IO.Pipes;
 using System.Linq;
 using BET.Market.Jobs.Core.Entities;
 using BET.Market.Jobs.Core.Helpers;
+using BET.Market.Jobs.DataAccess.EF.Defaults;
+using BET.Market.Jobs.DataAccess.EF.Interfaces;
+using Newtonsoft.Json;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using Quartz.Util;
 using Scheduler.Core;
+using Scheduler.Core.Exceptions;
 
 namespace BET.Market.Jobs
 {
@@ -15,15 +21,39 @@ namespace BET.Market.Jobs
         private readonly string fileName;
         private readonly DateTime dateTime;
 
-        public ScrapeDailyRaces()
+        public IDataService DataService { get; private set; }
+
+        public ScrapeDailyRaces() : this(new DataService())
         {
+        }
+
+        public ScrapeDailyRaces(IDataService dataService)
+        {
+            this.DataService = dataService;
             this.dateTime = DateTime.Now;
-            this.fileName = string.Format("{0}.{1:yyyyMMdd}.{2:HHmmss}", this.GetType().FullName, this.dateTime, this.dateTime);
+            this.fileName = string.Format("{0}.{1:yyyyMMdd}.{2:HH}0000", this.GetType().FullName, this.dateTime, this.dateTime);
         }
 
         public override void Run()
         {
+            IList<VenueEntity> data;
+
+            if (File.Exists(string.Format("{0}.json", fileName)))
+            {
+                data = JsonConvert.DeserializeObject<IList<VenueEntity>>(File.ReadAllText(string.Format("{0}.json", fileName)));
+            }
+            else
+            {
+                data = GetRaces(); 
+            }
+
+            DataService.UpdateData(data);
+        }
+
+        public IList<VenueEntity> GetRaces()
+        {
             var exceptions = new List<Exception>();
+            var venues = new List<VenueEntity>();
 
             Console.WriteLine("");
 
@@ -38,8 +68,6 @@ namespace BET.Market.Jobs
             {
                 try
                 {
-                    var venues = new List<VenueEntity>();
-
                     driver.Manage().Timeouts().ImplicitWait = TimeSpan.FromSeconds(0);
                     driver.Navigate().GoToUrl("https://www.skyracing.com.au/tab/form/index.php#");
                     GeneralHelpers.Wait(3000);
@@ -72,42 +100,235 @@ namespace BET.Market.Jobs
 
                                 var raceNavigations = driver.GetElements(By.XPath("//*[@id='navlist']/li"));
 
-                                if (raceNavigations.Any() && raceNavigations.Count == venues[i].Meetings.First().Races.Count + 2)
+                                if (raceNavigations.Any())
                                 {
-                                    foreach (var navigation in raceNavigations)
+                                    var raceCounter = 0;
+
+                                    for (var x = 0; x < raceNavigations.Count; x++)
                                     {
-                                        var href = navigation.FindElement(By.TagName("a")).GetAttribute("href");
+                                        raceNavigations = driver.GetElements(By.XPath("//*[@id='navlist']/li"));
+
+                                        var href = raceNavigations.ElementAt(x).FindElement(By.TagName("a")).GetAttribute("href");
 
                                         if (!string.IsNullOrEmpty(href))
                                         {
-                                            navigation.FindElement(By.TagName("a")).Click();
+                                            raceCounter++;
+
+                                            raceNavigations.ElementAt(x).FindElement(By.TagName("a")).Click();
                                             GeneralHelpers.Wait(3000);
+
+                                            var race = new RaceEntity
+                                            {
+                                                Number = raceCounter,
+                                                Name = driver.GetElement(By.XPath("//*[@id='topleft']/table[1]/tbody/tr/td[1]"))?.Text.Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Time = driver.GetElement(By.XPath("//*[@id='topleft']/table[1]/tbody/tr/td[2]"))?.Text.Replace("Advertised Start Time:", "").Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Weather = driver.GetElement(By.XPath("//*[@id='topleft']/table[1]/tbody/tr/td[3]"))?.Text.Replace("Weather:", "").Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Track = driver.GetElement(By.XPath("//*[@id='topleft']/table[1]/tbody/tr/td[4]"))?.Text.Replace("Track:", "").Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Distance = driver.GetElement(By.XPath("//*[@id='topleft']/table[2]/tbody/tr/td[1]"))?.Text.Replace("Distance:", "").Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Class = driver.GetElement(By.XPath("//*[@id='topleft']/table[2]/tbody/tr/td[2]"))?.Text.Replace("Class:", "").Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Prizemoney = driver.GetElement(By.XPath("//*[@id='topleft']/table[2]/tbody/tr/td[3]"))?.Text.Replace("Prizemoney:", "").Replace("\r\n", "").Replace("\n", "").Trim(),
+                                                Runners = new List<RunnerEntity>(),
+                                                DateTimeCreated = dateTime
+                                            };
+                                            
+                                            var table = driver.GetElement(By.XPath("//*[@id='report']/tbody"));
+                                            var runners = table.FindElements(By.XPath("//*[@class='alt' or @class='row' or @class='altscratched' or @class='rowscratched']"));
+
+                                            if (runners.Any())
+                                            {
+                                                foreach (var runner in runners)
+                                                {
+                                                    var scratched = runner.GetAttribute("class").Contains("scratched");
+                                                    var cells = runner.FindElements(By.TagName("td"));
+
+                                                    if (cells.Any())
+                                                    {
+                                                        var counter = 0;
+                                                        var r = new RunnerEntity { Scratched = scratched, DateTimeCreated = dateTime };
+
+                                                        foreach (var cell in cells)
+                                                        {
+                                                            counter++;
+
+                                                            if (counter == 1)
+                                                            {
+                                                                r.Number = int.Parse(cell.Text.Split(new char [] {'\n'}).Last().Trim());
+                                                            }
+                                                            else if (counter == 2)
+                                                            {
+                                                                r.LastFiveRuns = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+                                                            }
+                                                            else if (counter == 3)
+                                                            {
+                                                                r.Name = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+                                                            }
+                                                            else if (counter == 4)
+                                                            {
+                                                                r.Barrel = int.Parse(cell.Text.Replace("\r\n", "").Replace("\n", "").Trim());
+                                                            }
+                                                            else if (counter == 5)
+                                                            {
+                                                                r.Tcdw = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+                                                            }
+                                                            else if (counter == 6)
+                                                            {
+                                                                r.Trainer = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+                                                            }
+                                                            else if (counter == 7)
+                                                            {
+                                                                r.Jockey = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+                                                            }
+                                                            else if (counter == 8)
+                                                            {
+                                                                r.Weight = decimal.Parse(cell.Text.Replace("\r\n", "").Replace("\n", "").Trim());
+                                                            }
+                                                            else if (counter == 9)
+                                                            {
+                                                                r.Rating = int.Parse(cell.Text.Replace("\r\n", "").Replace("\n", "").Trim());
+                                                            }
+                                                        }
+
+                                                        race.Runners.Add(r);
+                                                    }
+                                                }
+                                            }
+
+                                            var formRows = driver.GetElements(By.XPath("//*[@id='details']/tbody/tr"));
+
+                                            if (formRows.Any())
+                                            {
+                                                var rowCounter = 0;
+
+                                                foreach (var formRow in formRows)
+                                                {
+                                                    var cells = formRow.GetElements(By.TagName("td"));
+
+                                                    if (cells.Any())
+                                                    {
+                                                        var cellCounter = 0;
+                                                        rowCounter++;
+
+                                                        foreach (var cell in cells)
+                                                        {
+                                                            cellCounter++;
+
+                                                            var text = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+
+                                                            if (!string.IsNullOrEmpty(text))
+                                                            {
+                                                                var number = int.Parse(text.Split(new char[] { ' ' })[0].Trim());
+                                                                var run = race.Runners.FirstOrDefault(xr => xr.Number == number);
+
+                                                                if (rowCounter <= 4)
+                                                                {
+                                                                    if (run != null)
+                                                                    {
+                                                                        if (cellCounter == 1)
+                                                                        {
+                                                                            run.FormSkyRating = true;
+                                                                            run.FormSkyRatingPosition = rowCounter;
+                                                                        }
+                                                                        else if (cellCounter == 2)
+                                                                        {
+                                                                            run.FormBest12Months = true;
+                                                                            run.FormBest12MonthsPosition = rowCounter;
+                                                                        }
+                                                                        else if (cellCounter == 3)
+                                                                        {
+                                                                            run.FormRecent = true;
+                                                                            run.FormRecentPosition = rowCounter;
+                                                                        }
+                                                                        else if (cellCounter == 4)
+                                                                        {
+                                                                            run.FormDistance = true;
+                                                                            run.FormDistancePosition = rowCounter;
+                                                                        }
+                                                                    }
+                                                                }
+                                                                else if (rowCounter > 4)
+                                                                {
+                                                                    if (run != null)
+                                                                    {
+                                                                        if (cellCounter == 1)
+                                                                        {
+                                                                            run.FormClass = true;
+                                                                            run.FormClassPosition = rowCounter - 4;
+                                                                        }
+                                                                        else if (cellCounter == 2)
+                                                                        {
+                                                                            run.FormTimeRating = true;
+                                                                            run.FormTimeRatingPosition = rowCounter - 4;
+                                                                        }
+                                                                        else if (cellCounter == 3)
+                                                                        {
+                                                                            run.FormInWet = true;
+                                                                            run.FormInWetPosition = rowCounter - 4;
+                                                                        }
+                                                                        else if (cellCounter == 4)
+                                                                        {
+                                                                            run.FormBestOverall = true;
+                                                                            run.FormBestOverallPosition = rowCounter - 4;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+
+                                            venues[i].Meetings.First().Races.Add(race);
                                         }
                                     }
                                 }
-                            }
 
-                            for (int i = 0; i < venues.Count; i++)
-                            {
-                                driver.Navigate().GoToUrl(venues[i].Meetings.First().TipsUrl);
-                                GeneralHelpers.Wait(3000);
-
-                                var tipsRows = driver.GetElements(By.XPath("//*[@id='report']/tbody/tr"));
-
-                                if (tipsRows != null && tipsRows.Any())
+                                if (venues[i].Meetings?.First()?.Races?.Count > 0)
                                 {
-                                    venues[i].Meetings.First().Races = new List<RaceEntity>();
+                                    driver.Navigate().GoToUrl(venues[i].Meetings.First().TipsUrl);
+                                    GeneralHelpers.Wait(3000);
 
-                                    foreach (var tip in tipsRows)
+                                    var tipsRows = driver.GetElements(By.XPath("//*[@id='report']/tbody/tr"));
+                                    
+                                    if (tipsRows != null && tipsRows.Any())
                                     {
-                                        var r = GetRacesAndTips(tip);
+                                        var raceCounter = 0;
 
-                                        if (r != null)
+                                        foreach (var tip in tipsRows)
                                         {
-                                            venues[i].Meetings.First().Races.Add(r);
+                                            var cells = tip.FindElements(By.TagName("td"));
+
+                                            if (cells.Any())
+                                            {
+                                                var cellCounter = 0;
+                                                raceCounter++;
+
+                                                foreach (var cell in cells)
+                                                {
+                                                    cellCounter++;
+                                                    var text = cell.Text.Replace("\r\n", "").Replace("\n", "").Trim();
+
+                                                    if (!string.IsNullOrEmpty(text) && cellCounter >= 3 && cellCounter <= 6)
+                                                    {
+                                                        var race = venues[i].Meetings.First().Races.FirstOrDefault(xr => xr.Number == raceCounter);
+                                                        var number = 0;
+
+                                                        if(race != null && int.TryParse(text.Split(new char[] { ' ' })[0].Replace(".", "").Trim(), out number))
+                                                        {
+                                                            var run = race.Runners.FirstOrDefault(xr => xr.Number == number);
+                                                            if (run != null)
+                                                            {
+                                                                run.TipSky = true;
+                                                                run.TipSkyPosition = cellCounter - 2;
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
                                         }
                                     }
                                 }
+
+                                File.WriteAllText(string.Format("{0}.json", fileName), JsonConvert.SerializeObject(venues, Formatting.Indented));
                             }
                         }
                     }
@@ -137,8 +358,15 @@ namespace BET.Market.Jobs
                     }
                 }
             }
-        }
 
+            if (exceptions.Any())
+            {
+                throw new ExceptionBunch("There were bunch of exceptions during the scrapping process.", exceptions); {}
+            }
+
+            return venues;
+        }
+        
         private static RaceEntity GetRacesAndTips(IWebElement tip)
         {
             var cells = tip.FindElements(By.TagName("td"));
@@ -210,7 +438,7 @@ namespace BET.Market.Jobs
             return null;
         }
 
-        private static VenueEntity GetMeetingData(IWebElement meeting)
+        private VenueEntity GetMeetingData(IWebElement meeting)
         {
             var cells = meeting.FindElements(By.TagName("td"));
 
@@ -236,7 +464,7 @@ namespace BET.Market.Jobs
 
                 if (provinces.Contains(province))
                 {
-                    return new VenueEntity { Name = name, Province = province, Meetings = new List<MeetingEntity> { new MeetingEntity { TipsUrl = tipsLink, FormUrl = formLink } } };
+                    return new VenueEntity { Name = name, Province = province, Meetings = new List<MeetingEntity> { new MeetingEntity { Date = long.Parse(DateTime.Now.ToString("yyyyMMdd")), TipsUrl = tipsLink, FormUrl = formLink, Races = new List<RaceEntity>(), DateTimeCreated = dateTime } }, DateTimeCreated = dateTime };
                 }
 
                 return null;

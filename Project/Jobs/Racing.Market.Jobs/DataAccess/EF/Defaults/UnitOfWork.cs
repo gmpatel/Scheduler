@@ -8,6 +8,7 @@ namespace BET.Market.Jobs.DataAccess.EF.Defaults
     {
         private static long counter;
 
+        private Repository<VenueEntity> venueRepository;
         private Repository<MeetingEntity> meetingRepository;
         private Repository<RaceEntity> raceRepository;
         private Repository<RunnerEntity> runnerRepository;
@@ -26,6 +27,19 @@ namespace BET.Market.Jobs.DataAccess.EF.Defaults
         }
 
         public IDataContext DbContext { get; private set; }
+
+        public IRepository<VenueEntity> VenueRepository
+        {
+            get
+            {
+                if (this.venueRepository == null)
+                {
+                    this.venueRepository = new Repository<VenueEntity>(DbContext);
+                }
+
+                return this.venueRepository;
+            }
+        }
 
         public IRepository<MeetingEntity> MeetingRepository
         {
