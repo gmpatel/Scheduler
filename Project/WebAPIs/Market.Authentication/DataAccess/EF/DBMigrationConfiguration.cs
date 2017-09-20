@@ -59,8 +59,8 @@ namespace Market.Authentication.DataAccess.EF
                 context.Database.ExecuteSqlCommand("DBCC CHECKIDENT ('Roles', RESEED, 0)");
 
                 context.Roles.Add(new RoleEntity { Name = "None", Description = "None of the roles has not been allocated to the user", Enabled = false, DateTimeCreated = dateTime });
-                context.Roles.Add(new RoleEntity { Name = "Admin", Description = "The user has granted the rights as an admin", Enabled = true, DateTimeCreated = dateTime });
                 context.Roles.Add(new RoleEntity { Name = "User", Description = "The user has granted the rights as a normal user", Enabled = true, DateTimeCreated = dateTime });
+                context.Roles.Add(new RoleEntity { Name = "Admin", Description = "The user has granted the rights as an admin", Enabled = true, DateTimeCreated = dateTime });
                 
                 context.SaveChanges();
             }

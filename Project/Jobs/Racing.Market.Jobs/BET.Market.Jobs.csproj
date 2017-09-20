@@ -94,11 +94,11 @@
     <Compile Include="Core\Helpers\GeneralHelpers.cs" />
     <Compile Include="DataAccess\EF\DBMigrationConfiguration.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataContext.cs" />
-    <Compile Include="DataAccess\EF\Defaults\DataService.cs" />
+    <Compile Include="DataAccess\EF\Defaults\DataServiceBET.cs" />
     <Compile Include="DataAccess\EF\Defaults\Repository.cs" />
     <Compile Include="DataAccess\EF\Defaults\UnitOfWork.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IDataContext.cs" />
-    <Compile Include="DataAccess\EF\Interfaces\IDataService.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IDataServiceBET.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IRepository.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IUnitOfWork.cs" />
     <Compile Include="DataAccess\EF\MigrateDatabaseToLatestVersionExtended.cs" />

@@ -1,5 +1,5 @@
 select * from vStocks where StockCode = 'ALL' order by BuyIndicator desc, StockCode asc, date desc 
-select * from Stocks where Name like '%get%'
+select * from Stocks where Name like '%altech%'
 
 select * from vStocks where stockCode = 'WBC' order by date desc
 select cast(convert(nvarchar(4), date/10000) + '-' + right('00' + convert(nvarchar(2), (date%10000)/100), 2) + '-' + right('00' + convert(nvarchar(4), (date%100)), 2) + ' 00:00:00' as datetime)[date], Price from vStocks where stockCode = 'WBC' order by date desc

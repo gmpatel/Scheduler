@@ -105,12 +105,12 @@
     <Compile Include="Core\Helpers\GeneralHelpers.cs" />
     <Compile Include="DataAccess\EF\DBMigrationConfiguration.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataContext.cs" />
-    <Compile Include="DataAccess\EF\Defaults\DataService.cs" />
+    <Compile Include="DataAccess\EF\Defaults\DataServiceASX.cs" />
     <Compile Include="DataAccess\EF\Defaults\ViewRepository.cs" />
     <Compile Include="DataAccess\EF\Defaults\Repository.cs" />
     <Compile Include="DataAccess\EF\Defaults\UnitOfWork.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IDataContext.cs" />
-    <Compile Include="DataAccess\EF\Interfaces\IDataService.cs" />
+    <Compile Include="DataAccess\EF\Interfaces\IDataServiceASX.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IViewRepository.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IRepository.cs" />
     <Compile Include="DataAccess\EF\Interfaces\IUnitOfWork.cs" />

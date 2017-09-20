@@ -21,13 +21,13 @@ namespace ASX.Market.Jobs
         private readonly string fileName;
         private readonly DateTime dateTime;
 
-        public IDataService DataService { get; private set; }
+        public IDataServiceASX DataService { get; private set; }
 
-        public ScrapeStockPriceHistory() : this(new DataService())
+        public ScrapeStockPriceHistory() : this(new DataServiceASX())
         {
         }
 
-        public ScrapeStockPriceHistory(IDataService dataService)
+        public ScrapeStockPriceHistory(IDataServiceASX dataService)
         {
             this.DataService = dataService;
             this.dateTime = DateTime.Now;

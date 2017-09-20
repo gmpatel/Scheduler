@@ -21,13 +21,13 @@ namespace BET.Market.Jobs
         private readonly string fileName;
         private readonly DateTime dateTime;
 
-        public IDataService DataService { get; private set; }
+        public IDataServiceBET DataService { get; private set; }
 
-        public ScrapeDailyRaces() : this(new DataService())
+        public ScrapeDailyRaces() : this(new DataServiceBET())
         {
         }
 
-        public ScrapeDailyRaces(IDataService dataService)
+        public ScrapeDailyRaces(IDataServiceBET dataService)
         {
             this.DataService = dataService;
             this.dateTime = DateTime.Now;
@@ -152,7 +152,7 @@ namespace BET.Market.Jobs
 
                                                             if (counter == 1)
                                                             {
-                                                                r.Number = int.Parse(cell.Text.Split(new char [] {'\n'}).Last().Trim());
+                                                                r.Number = int.Parse(cell.Text.Split(new char [] {'\n'}).Last().Replace("a", "").Replace("b", "").Replace("c", "").Replace("d", "").Replace("e", "").Replace("f", "").Replace("g", "").Replace("h", "").Trim());
                                                             }
                                                             else if (counter == 2)
                                                             {
@@ -447,7 +447,7 @@ namespace BET.Market.Jobs
                 var name = string.Empty;
                 var province = string.Empty;
                 
-                var provinces = new List<string> {"ACT", "NSW", "VIC", "QLD", "SA", "TAS", "WA", "NT"};
+                var provinces = new List<string> {"ACT", "NSW", "VIC", "QLD", "SA", "TAS", "WA", "NT", "UK", "FR", "IR"};
 
                 var nameState = cells[0].Text;
 

@@ -11,7 +11,7 @@ namespace Market.Authentication.DataAccess.EF.Defaults
     {
         private static long counter;
 
-        public DataContext() : base("AuthMarkets")
+        public DataContext() : base("AUTHMarkets")
         {
             Configuration.LazyLoadingEnabled = true;
             Configuration.ProxyCreationEnabled = true;
