@@ -72,9 +72,11 @@
     <Compile Include="Core\Helpers\RandomString.cs" />
     <Compile Include="Core\Objects\Exceptions\GeneralException.cs" />
     <Compile Include="Core\Objects\Requests\EmailRequest.cs" />
+    <Compile Include="Core\Objects\Requests\LoginUserRequest.cs" />
     <Compile Include="Core\Objects\Requests\RegisterUserRequest.cs" />
     <Compile Include="Core\Objects\Responses\Common\Error.cs" />
     <Compile Include="Core\Objects\Responses\Common\GenericResponse.cs" />
+    <Compile Include="Core\Objects\Responses\LoginUserResponse.cs" />
     <Compile Include="DataAccess\EF\DBMigrationConfiguration.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataContext.cs" />
     <Compile Include="DataAccess\EF\Defaults\DataServiceAUTH.cs" />
@@ -106,7 +108,7 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
+      <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Templates.resx">

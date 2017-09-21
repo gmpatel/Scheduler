@@ -22,7 +22,7 @@ namespace Market.Authentication.Properties {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resources {
+    public class Resources {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
@@ -36,7 +36,7 @@ namespace Market.Authentication.Properties {
         ///   Returns the cached ResourceManager instance used by this class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Resources.ResourceManager ResourceManager {
+        public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
                     global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Market.Authentication.Properties.Resources", typeof(Resources).Assembly);
@@ -51,7 +51,7 @@ namespace Market.Authentication.Properties {
         ///   resource lookups using this strongly typed resource class.
         /// </summary>
         [global::System.ComponentModel.EditorBrowsableAttribute(global::System.ComponentModel.EditorBrowsableState.Advanced)]
-        internal static global::System.Globalization.CultureInfo Culture {
+        public static global::System.Globalization.CultureInfo Culture {
             get {
                 return resourceCulture;
             }
@@ -61,9 +61,27 @@ namespace Market.Authentication.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to 3f6169bf-b7cf-4280-9a09-c82a423f58d4.
+        /// </summary>
+        public static string ApiKey {
+            get {
+                return ResourceManager.GetString("ApiKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2e19169f-4d93-4c2e-8436-31a32a2ee374.
+        /// </summary>
+        public static string BackEndKey {
+            get {
+                return ResourceManager.GetString("BackEndKey", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to nrpl-prm@outlook.com.
         /// </summary>
-        internal static string FromEmail {
+        public static string FromEmail {
             get {
                 return ResourceManager.GetString("FromEmail", resourceCulture);
             }
@@ -72,7 +90,7 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to Cm#80Gm#78.
         /// </summary>
-        internal static string FromEmailPassword {
+        public static string FromEmailPassword {
             get {
                 return ResourceManager.GetString("FromEmailPassword", resourceCulture);
             }
@@ -81,7 +99,7 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to No Reply.
         /// </summary>
-        internal static string FromName {
+        public static string FromName {
             get {
                 return ResourceManager.GetString("FromName", resourceCulture);
             }
@@ -90,7 +108,7 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to x-access-key.
         /// </summary>
-        internal static string KeyHeaderKey1 {
+        public static string KeyHeaderKey1 {
             get {
                 return ResourceManager.GetString("KeyHeaderKey1", resourceCulture);
             }
@@ -99,7 +117,7 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to key.
         /// </summary>
-        internal static string KeyHeaderKey2 {
+        public static string KeyHeaderKey2 {
             get {
                 return ResourceManager.GetString("KeyHeaderKey2", resourceCulture);
             }
@@ -108,7 +126,7 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to smtp.live.com.
         /// </summary>
-        internal static string SMTPServer {
+        public static string SMTPServer {
             get {
                 return ResourceManager.GetString("SMTPServer", resourceCulture);
             }
@@ -117,7 +135,7 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to x-access-token.
         /// </summary>
-        internal static string TokenHeaderKey1 {
+        public static string TokenHeaderKey1 {
             get {
                 return ResourceManager.GetString("TokenHeaderKey1", resourceCulture);
             }
@@ -126,9 +144,18 @@ namespace Market.Authentication.Properties {
         /// <summary>
         ///   Looks up a localized string similar to token.
         /// </summary>
-        internal static string TokenHeaderKey2 {
+        public static string TokenHeaderKey2 {
             get {
                 return ResourceManager.GetString("TokenHeaderKey2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.00.
+        /// </summary>
+        public static string TokenLifeSpanMinutes {
+            get {
+                return ResourceManager.GetString("TokenLifeSpanMinutes", resourceCulture);
             }
         }
     }

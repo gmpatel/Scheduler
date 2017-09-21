@@ -91,3 +91,6 @@ D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\bin\Microsoft.Extension
 D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\bin\Microsoft.Extensions.Primitives.xml
 D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\obj\Debug\Market.WebApis.Properties.Resources.resources
 D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\obj\Debug\Market.WebApis.csproj.GenerateResource.Cache
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\bin\System.Web.Cors.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\bin\System.Web.Http.Cors.dll
+D:\Projects\GIT\Scheduler\Project\WebAPIs\Market.WebApis\bin\System.Web.Http.Cors.xml

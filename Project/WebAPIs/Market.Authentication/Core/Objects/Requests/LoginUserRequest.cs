@@ -1,6 +1,6 @@
 ﻿using Newtonsoft.Json;
 
-namespace Insureme.Core.v1.Objects.Requests
+namespace Market.Authentication.Core.Objects.Requests
 {
     public class LoginUserRequest
     {

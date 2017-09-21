@@ -1,7 +1,7 @@
-﻿using Insureme.Core.v1.Entities;
+﻿using Market.Authentication.Core.Entities;
 using Newtonsoft.Json;
 
-namespace Insureme.Core.v1.Objects.Responses
+namespace Market.Authentication.Core.Objects.Responses
 {
     public class LoginUserResponse
     {
@@ -9,6 +9,6 @@ namespace Insureme.Core.v1.Objects.Responses
         public UserEntity User { get; set; }
 
         [JsonProperty("token", Order = 2, DefaultValueHandling = DefaultValueHandling.Ignore)]
-        public string Token { get; set; }
+        public TokenEntity Token { get; set; }
     }
 }

@@ -6,11 +6,23 @@ namespace Testing.Jobs
     {
         static void Main(string[] args)
         {
-            //var job = new ASX.Market.Jobs.ScrapeDailyData();
-            var job = new BET.Market.Jobs.ScrapeDailyRaces();
-            job.Run();
+            var input = Console.ReadLine();
 
-            Console.ReadKey();
+            if (!string.IsNullOrEmpty(input))
+            {
+                if (input.Trim().ToLower().Equals("bet"))
+                {
+                    var job = new BET.Market.Jobs.ScrapeDailyRaces(); 
+                    job.Run();
+                }
+                else if(input.Trim().ToLower().Equals("asx"))
+                {
+                    var job = new ASX.Market.Jobs.ScrapeDailyData();
+                    job.Run();
+                }
+                
+                Console.ReadKey();
+            }
         }
     }
 }

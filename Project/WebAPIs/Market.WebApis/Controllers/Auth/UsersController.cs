@@ -9,6 +9,7 @@ using Market.Authentication.Core.Entities;
 using Market.Authentication.Core.Helpers;
 using Market.Authentication.Core.Objects.Exceptions;
 using Market.Authentication.Core.Objects.Requests;
+using Market.Authentication.Core.Objects.Responses;
 using Market.Authentication.Core.Objects.Responses.Common;
 using Market.Authentication.DataAccess.EF.Interfaces;
 using Market.WebApis.Filters.Authorization;
@@ -47,7 +48,6 @@ namespace Market.WebApis.Controllers.Auth
                 );
             }
             catch (GeneralException exception)
-
             {
                 return new HttpActionResult<GenericResponse<UserEntity>>(
                     HttpStatusCode.OK,
@@ -57,7 +57,7 @@ namespace Market.WebApis.Controllers.Auth
                         {
                             Code = exception.Code,
                             ResponseCode = HttpStatusCode.OK,
-                            Message = exception.Message
+                            Message = exception.AllMessages()
                         }
                     }
                 );
@@ -72,7 +72,60 @@ namespace Market.WebApis.Controllers.Auth
                         {
                             Code = 10699,
                             ResponseCode = HttpStatusCode.InternalServerError,
+                            Message = exception.AllMessages()
+                        }
+                    }
+                );
+            }
+        }
+
+        [Route("sign-in")]
+        [HttpPost]
+        public IHttpActionResult SignIn(LoginUserRequest request)
+        {
+            try
+            {
+                var user = this.dataServiceAuth.SigninUser(request);
+                var token = this.dataServiceAuth.GetToken(user);
+
+                return new HttpActionResult<GenericResponse<LoginUserResponse>>(
+                    HttpStatusCode.OK,
+                    new GenericResponse<LoginUserResponse>
+                    {
+                        Result = new LoginUserResponse
+                        {
+                            User = user,
+                            Token = token
+                        }
+                    }
+                );
+            }
+            catch (GeneralException exception)
+            {
+                return new HttpActionResult<GenericResponse<LoginUserResponse>>(
+                    HttpStatusCode.OK,
+                    new GenericResponse<LoginUserResponse>
+                    {
+                        Error = new Error
+                        {
+                            Code = exception.Code,
+                            ResponseCode = HttpStatusCode.OK,
                             Message = exception.Message
+                        }
+                    }
+                );
+            }
+            catch (Exception exception)
+            {
+                return new HttpActionResult<GenericResponse<LoginUserResponse>>(
+                    HttpStatusCode.InternalServerError,
+                    new GenericResponse<LoginUserResponse>
+                    {
+                        Error = new Error
+                        {
+                            Code = 10699,
+                            ResponseCode = HttpStatusCode.InternalServerError,
+                            Message = exception.AllMessages()
                         }
                     }
                 );

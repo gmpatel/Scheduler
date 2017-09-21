@@ -84,7 +84,7 @@ namespace Market.Authentication.DataAccess.EF.Defaults
 
             modelBuilder.Entity<TokenEntity>().ToTable("Tokens");
             modelBuilder.Entity<TokenEntity>().Property(t => t.Id).HasDatabaseGeneratedOption(DatabaseGeneratedOption.Identity);
-            modelBuilder.Entity<TokenEntity>().Property(t => t.Token).HasColumnType("nvarchar").IsRequired();
+            modelBuilder.Entity<TokenEntity>().Property(t => t.String).HasColumnType("nvarchar").IsRequired();
             modelBuilder.Entity<TokenEntity>().Property(t => t.DateTimeCreated).IsRequired();
             modelBuilder.Entity<TokenEntity>().Property(t => t.DateTimeExpire).IsRequired();
             modelBuilder.Entity<TokenEntity>().HasKey(r => new { r.Id });
@@ -172,13 +172,6 @@ namespace Market.Authentication.DataAccess.EF.Defaults
                 "IX_NC_UNIQ_State_Name",
                 IndexOptions.Unique,
                 e => e.Property(x => x.Name)
-            );
-
-            modelBuilder.Entity<TokenEntity>().HasIndex(
-                "IX_NC_UNIQ_Token_UserId_Token",
-                IndexOptions.Unique,
-                e => e.Property(x => x.UserId),
-                e => e.Property(x => x.Token)
             );
 
             modelBuilder.Entity<UserEntity>().HasIndex(

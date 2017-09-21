@@ -12,16 +12,16 @@ namespace Market.Authentication.Core.Entities
         [JsonProperty(PropertyName = "id")]
         public long Id { get; set; }
 
-        [JsonProperty(PropertyName = "token")]
-        public string Token { get; set; }
-
         [JsonIgnore]
         public long UserId { get; set; }
+
+        [JsonProperty(PropertyName = "string")]
+        public string String { get; set; }
 
         [JsonIgnore]
         public DateTime DateTimeCreated { get; set; }
 
-        [JsonIgnore]
+        [JsonProperty(PropertyName = "expiry")]
         public DateTime DateTimeExpire { get; set; }
 
         [JsonIgnore]

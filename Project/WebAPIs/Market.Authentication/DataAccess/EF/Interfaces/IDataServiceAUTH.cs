@@ -11,5 +11,8 @@ namespace Market.Authentication.DataAccess.EF.Interfaces
         long Instances { get; }
 
         UserEntity RegisterUser(RegisterUserRequest request);
+        UserEntity SigninUser(LoginUserRequest request);
+        TokenEntity GetToken(string userEmail);
+        TokenEntity GetToken(UserEntity user);
     }
 }

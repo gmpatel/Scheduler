@@ -29,6 +29,7 @@ namespace Market.WebApis
         public static string ApiKey { get; set; }
         public static bool ApiKeyEnabled { get; set; }
         public static string HostRootUrl { get; set; }
+        public static double TokenLifeSpanMinutes { get; set; }
     }
     
     public class WebApiApplication : System.Web.HttpApplication
@@ -66,9 +67,11 @@ namespace Market.WebApis
 
         public static void GetConfiguration(IContainer container)
         {
-            WebSystem.ApiKey = "3f6169bf-b7cf-4280-9a09-c82a423f58d4";
+            WebSystem.ApiKey = Authentication.Properties.Resources.ApiKey;
+            WebSystem.BackEndKey = Authentication.Properties.Resources.BackEndKey;
             WebSystem.ApiKeyEnabled = true;
             WebSystem.HostRootUrl = default(string);
+            WebSystem.TokenLifeSpanMinutes = double.Parse(Authentication.Properties.Resources.TokenLifeSpanMinutes);
         }
     }
 }
